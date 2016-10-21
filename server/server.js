@@ -3,32 +3,35 @@
 const express = require('express');
 
 const app = express();
-const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
 const { json } = require('body-parser');
 
+const PORT = process.env.PORT || 3000;
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/logjam'
+
 
 app.use(express.static('client'));
+app.use(json());
 
 
 // GETS ALL THE MESSAGES BACK FROM DB
-app.get('/api/getAll', (req, res) =>
+app.get('/api/getAll  ', (req, res) =>
   res.json({
     messages: [
       {
-        id: 1,
+        userId: 1,
         title: 'santa2000',
         lyric: 'christmas time is here.  time for beer and cheer.',
         audio: 'santa2000jam'
       },
       {
-        id: 2,
+        userId: 1,
         title: 'Barf-o-rama',
         lyric: 'ate a dank noodle.  puked on a poodle',
         audio: 'barf-o-ramajam'
       },
       {
-        id: 3,
+        userId: 1,
         title: 'jim',
         lyric: 'dont eat that meat stick, snap into a new trick',
         audio: 'barf-o-ramajam'
@@ -39,7 +42,7 @@ app.get('/api/getAll', (req, res) =>
 
 // SET UP MODEL FOR WHAT IS TO BE SENT TO DB ON FORM SUBMIT
 const Song = mongoose.model('song', {
-  id: String,
+  userId: String,
   title: String,
   lyric: String,
   audio: String
@@ -55,5 +58,6 @@ app.post('/api/newSong', (req, res, err) =>
 
 mongoose.Promise = Promise;
 
-
-app.listen(port, () => console.log(`Listening on port: ${port}`));
+mongoose.connect(MONGODB_URL, () => { 
+  app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`));
+})
