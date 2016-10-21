@@ -32,7 +32,6 @@ app.get('/api/getAll', (req, res, err) => {
 
 // FIND ONE SONG BY ID AND RETURN THAT SONG
 app.get('/api/getOne/:id', (req, res) => {
-  console.log("req.params.id", req.params.id);
   let songId = req.params.id;
   Song
     .findById(songId)
