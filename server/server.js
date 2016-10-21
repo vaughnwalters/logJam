@@ -31,12 +31,12 @@ app.get('/api/getAll', (req, res, err) => {
 }); 
 
 // FIND ONE SONG BY ID AND RETURN THAT SONG
-app.get('/api/getOne/:id', (req, res) => {
-  console.log("req.params.id", req.params.id);
+app.get('/api/getOne/:id', (req, res, err) => {
   let songId = req.params.id;
   Song
     .findById(songId)
     .then(songs => res.json({ songs }))
+    .catch(err)
 });
  
 
@@ -47,7 +47,25 @@ app.post('/api/newSong', (req, res, err) => {
     .create(req.body)
     .then(song => res.json(song))
     .catch(err)
-});                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+});
+
+// // DELETE SONG FROM DB
+// deletes but still gets hung up
+app.get('/api/deleteSong/:id', (req, res, err) => {
+  let id = {
+    _id: req.params.id
+  };
+  Song.remove(id, function(err, songs){
+    if(err){
+      console.log("it broke");                
+    }
+    else{                
+      console.log("song removed");
+    }
+  })
+  .then(() => res.send("song deleted in DB"))
+})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
 
 mongoose.Promise = Promise;
 
