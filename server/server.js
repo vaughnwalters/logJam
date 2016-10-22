@@ -70,17 +70,20 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
 
 
 // UPDATE SONG LYRICS
+// do a post and get the req.body  and then change it and send it back
 app.patch('/api/updateSong/:id', (req, res, err) => {
   let id = {
     _id: req.params.id
   };
+  console.log("id", id);
+
   Song.findOneAndUpdate(id, {$set:{
     title: req.body.title,
     lyric: req.body.lyric,
     audio: req.body.audio
-  }})
-  .then(console.log("req.body after update", req.body))
+  }}, {upsert:true})
   .then((song) => {
+    
     console.log('updated song', song)
     res.json(song)
   })
@@ -90,6 +93,7 @@ app.patch('/api/updateSong/:id', (req, res, err) => {
 
 
 
+// Contact.update({phone:request.phone}, contact, {upsert: true}, function(err){...}
 
 
 
