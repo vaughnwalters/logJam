@@ -22,6 +22,7 @@ const Song = mongoose.model('song', {
   audio: String
 });
 
+
 // GETS ALL THE SONGS BACK FROM THE DB
 app.get('/api/getAll', (req, res, err) => {
   Song
@@ -29,6 +30,7 @@ app.get('/api/getAll', (req, res, err) => {
     .then(songs => res.json({ songs }))
     .catch(err)
 }); 
+
 
 // FIND ONE SONG BY ID AND RETURN THAT SONG
 app.get('/api/getOne/:id', (req, res, err) => {
@@ -49,8 +51,8 @@ app.post('/api/newSong', (req, res, err) => {
     .catch(err)
 });
 
+
 // // DELETE SONG FROM DB
-// deletes but still gets hung up
 app.get('/api/deleteSong/:id', (req, res, err) => {
   let id = {
     _id: req.params.id
@@ -63,8 +65,33 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
       console.log("song removed");
     }
   })
-  .then(() => res.send("song deleted in DB"))
+  .then(() => res.send("song deleted in DB"));
 })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+
+
+// UPDATE SONG LYRICS
+app.patch('/api/updateSong/:id', (req, res, err) => {
+  let id = {
+    _id: req.params.id
+  };
+  Song.findOneAndUpdate(id, {$set:{
+    title: req.body.title,
+    lyric: req.body.lyric,
+    audio: req.body.audio
+  }})
+  .then(console.log("req.body after update", req.body))
+  .then((song) => {
+    console.log('updated song', song)
+    res.json(song)
+  })
+  .catch(err)
+});
+
+
+
+
+
+
 
 
 mongoose.Promise = Promise;
