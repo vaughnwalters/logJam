@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 
 // SET UP MODEL FOR WHAT IS TO BE SENT TO DB ON FORM SUBMIT

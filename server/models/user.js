@@ -1,6 +1,6 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 // const HTML5_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*/=?^_`{|}~-]@[a-zA-Z0-9-](?:\.[a-zA-Z0-9-])*$/
 
