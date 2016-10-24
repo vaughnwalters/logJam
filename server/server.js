@@ -9,18 +9,20 @@ const { json } = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/logjam';
 
+const User = require('./models/user');
+const Song = require('./models/song');
 
 app.use(express.static('client'));
 app.use(json());
 
 
-// SET UP MODEL FOR WHAT IS TO BE SENT TO DB ON FORM SUBMIT
-const Song = mongoose.model('song', {
-  userId: String,
-  title: String,
-  lyric: String,
-  audio: String
-});
+// // SET UP MODEL FOR WHAT IS TO BE SENT TO DB ON FORM SUBMIT
+// const Song = mongoose.model('song', {
+//   userId: String,
+//   title: String,
+//   lyric: String,
+//   audio: String
+// });
 
 
 // GETS ALL THE SONGS BACK FROM THE DB
