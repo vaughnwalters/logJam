@@ -37,7 +37,7 @@ app.use(session({
 
 app.use((req, res, next) => {
   console.log("req.session", req.session );
-  app.locals.email = req.session && req.session.email;
+  app.locals.userId = req.session && req.session.userId;
   app.locals.displayName = req.session && req.session.displayName;
   next()
 })
@@ -52,6 +52,8 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.post('/login', ({session, body: {email, password}}, res, err) => {
   User.findOne({email})
     .then(user => {
+      console.log("user", user._id);
+      app.locals.userId = user._id
       if (user) {
         return new Promise((resolve, reject)=> {
           bcrypt.compare(password, user.password, (err, matches) => {
@@ -68,8 +70,10 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
     })
     .then((matches) => {
       if (matches) {
-        session.email = email
-        res.json({msg:`${app.locals.email} logged in`})
+        session.displayName = app.locals.displayName;
+        console.log("app.locals.userId", app.locals.userId);
+        session.userId = app.locals.userId;
+        res.json({msg:`${app.locals.userId} logged in`})
       } else {
         res.json({msg:'Password does not match'})
       }
@@ -110,9 +114,10 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
 
 // in postman to register new user
 // {
-//   "email": "c@c.com",
-//     "password": "bbbbbb",
-//     "confirmation": "bbbbbb"
+//   "displayName": "A",
+//   "email": "a@a.com",
+//     "password": "aaaaaa",
+//     "confirmation": "aaaaaa"
 // }
 
 
@@ -123,6 +128,17 @@ app.get('/logout', (req,res) => {
     res.json({ msg: 'user logged out sucessfully'})
   })
 })
+
+// POSTS NEW SONG TO DB
+app.post('/api/newSong', (req, res, err) => {
+  console.log("app.locals.userId", app.locals.userId);
+  req.body.userId = app.locals.userId;
+  console.log("req.body.email", req.body.userId);
+  Song
+    .create(req.body)
+    .then(song => res.json(song))
+    .catch(err)
+});
 
 // GETS ALL THE SONGS BACK FROM THE DB
 app.get('/api/getAll', (req, res, err) => {
@@ -142,15 +158,6 @@ app.get('/api/getOne/:id', (req, res, err) => {
     .catch(err)
 });
  
-
-// POSTS NEW SONG TO DB
-app.post('/api/newSong', (req, res, err) => {
-  console.log("req.body", req.body);
-  Song
-    .create(req.body)
-    .then(song => res.json(song))
-    .catch(err)
-});
 
 
 // // DELETE SONG FROM DB
