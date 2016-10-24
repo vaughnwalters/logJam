@@ -80,8 +80,7 @@ app.patch('/api/updateSong/:id', (req, res, err) => {
     title: req.body.title,
     lyric: req.body.lyric,
     audio: req.body.audio
-  }})
-  .then(console.log("req.body after update", req.body))
+  }, returnNewDocument: true}, {new: true})
   .then((song) => {
     console.log('updated song', song)
     res.json(song)
