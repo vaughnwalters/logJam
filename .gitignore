@@ -38,3 +38,6 @@ jspm_packages
 
 # working out ideas
 scratchpad.js
+
+#redis dump file
+dump.rdb
