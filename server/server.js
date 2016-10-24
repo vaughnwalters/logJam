@@ -1,9 +1,13 @@
 'use strict';
 
 const express = require('express');
-
+const session = require('express-session');
+const RedisStore = require('connect-redis')(session);
 const app = express();
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt')
+const bodyParser = require('body-parser')
+
 const { json } = require('body-parser');
 
 const PORT = process.env.PORT || 3000;
@@ -16,14 +20,109 @@ app.use(express.static('client'));
 app.use(json());
 
 
-// // SET UP MODEL FOR WHAT IS TO BE SENT TO DB ON FORM SUBMIT
-// const Song = mongoose.model('song', {
-//   userId: String,
-//   title: String,
-//   lyric: String,
-//   audio: String
-// });
+app.locals.errors = {} // errors & body added to avoid guard statements
+app.locals.body = {} // i.e. value=(body && body.name) vs. value=body.name
 
+
+
+// middlewares
+app.use(session({
+  store: new RedisStore({
+    url: process.env.REDIS_URL || 'redis://localhost:6379'
+  }),
+  secret: 'logjam',
+  resave: true,
+  saveUninitialized: true
+}))
+
+app.use((req, res, next) => {
+  console.log("req.session", req.session );
+  app.locals.email = req.session && req.session.email;
+  app.locals.displayName = req.session && req.session.displayName;
+  next()
+})
+// app.use(express.static('public'))
+app.use(bodyParser.urlencoded({extended: false}))
+
+
+
+
+
+// LOGIN USER
+app.post('/login', ({session, body: {email, password}}, res, err) => {
+  User.findOne({email})
+    .then(user => {
+      if (user) {
+        return new Promise((resolve, reject)=> {
+          bcrypt.compare(password, user.password, (err, matches) => {
+            if (err){
+              reject(err)
+            } else {
+              resolve(matches)
+            }
+          })
+        })
+      } else {
+        res.json({msg: 'Email is not found'})
+      }
+    })
+    .then((matches) => {
+      if (matches) {
+        session.email = email
+        res.json({msg:`${app.locals.email} logged in`})
+      } else {
+        res.json({msg:'Password does not match'})
+      }
+    })
+    .catch(err)
+})
+
+// REGISTER USER
+app.post('/register', ({ body: { displayName, email, password, confirmation } }, res, err) => {
+  console.log("displayName", displayName);
+  console.log("email", email);
+  console.log("password", password);
+  console.log("confirmation", confirmation);
+  if (password === confirmation) {
+    User.findOne({ email })
+      .then(user => {
+        if (user) {
+          res.json({ msg: 'Email is already registered' })
+          } else {
+          return new Promise((resolve, reject) => {
+            bcrypt.hash(password, 10, (err, hash) => {
+              if (err) {
+                reject(err)
+              } else {
+                resolve(hash)
+              }
+            })
+          })
+          .then(hash => User.create({ displayName, email, password: hash }))
+          .then(() => res.json({msg: `${displayName} is now a registered user`}))
+          .catch(err)
+        }
+      })
+  } else { 
+    res.json({ msg: 'Password & password confirmation do not match' })
+  }
+})
+
+// in postman to register new user
+// {
+//   "email": "c@c.com",
+//     "password": "bbbbbb",
+//     "confirmation": "bbbbbb"
+// }
+
+
+// LOGOUT USER
+app.get('/logout', (req,res) => {
+  req.session.destroy( err => {
+    if (err) throw err
+    res.json({ msg: 'user logged out sucessfully'})
+  })
+})
 
 // GETS ALL THE SONGS BACK FROM THE DB
 app.get('/api/getAll', (req, res, err) => {
@@ -87,11 +186,6 @@ app.patch('/api/updateSong/:id', (req, res, err) => {
   })
   .catch(err)
 });
-
-
-
-
-
 
 
 

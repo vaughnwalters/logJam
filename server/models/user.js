@@ -1,10 +1,14 @@
-'use strict'
+'use strict';
 
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 // const HTML5_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*/=?^_`{|}~-]@[a-zA-Z0-9-](?:\.[a-zA-Z0-9-])*$/
 
 module.exports = mongoose.model('User', {
+  displayName: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     lowercase: true,
