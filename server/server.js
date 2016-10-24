@@ -37,7 +37,8 @@ app.use(session({
 
 app.use((req, res, next) => {
   console.log("req.session", req.session );
-  app.locals.email = req.session && req.session.email
+  app.locals.email = req.session && req.session.email;
+  app.locals.displayName = req.session && req.session.displayName;
   next()
 })
 // app.use(express.static('public'))
@@ -68,7 +69,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
     .then((matches) => {
       if (matches) {
         session.email = email
-        res.json({msg:'User successfully logged in'})
+        res.json({msg:`${app.locals.email} logged in`})
       } else {
         res.json({msg:'Password does not match'})
       }
@@ -77,7 +78,8 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
 })
 
 // REGISTER USER
-app.post('/register', ({ body: { email, password, confirmation } }, res, err) => {
+app.post('/register', ({ body: { displayName, email, password, confirmation } }, res, err) => {
+  console.log("displayName", displayName);
   console.log("email", email);
   console.log("password", password);
   console.log("confirmation", confirmation);
@@ -86,7 +88,7 @@ app.post('/register', ({ body: { email, password, confirmation } }, res, err) =>
       .then(user => {
         if (user) {
           res.json({ msg: 'Email is already registered' })
-        } else {
+          } else {
           return new Promise((resolve, reject) => {
             bcrypt.hash(password, 10, (err, hash) => {
               if (err) {
@@ -96,11 +98,11 @@ app.post('/register', ({ body: { email, password, confirmation } }, res, err) =>
               }
             })
           })
+          .then(hash => User.create({ displayName, email, password: hash }))
+          .then(() => res.json({msg: `${displayName} is now a registered user`}))
+          .catch(err)
         }
       })
-      .then(hash => User.create({ email, password: hash }))
-      .then(() => res.send('Register successful'))
-      .catch(err)
   } else { 
     res.json({ msg: 'Password & password confirmation do not match' })
   }
