@@ -6,10 +6,7 @@ const RedisStore = require('connect-redis')(session);
 const app = express();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt')
-const bodyParser = require('body-parser')
-
-const { json } = require('body-parser');
-
+const { json, urlencoded } = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/logjam';
 
@@ -42,7 +39,7 @@ app.use((req, res, next) => {
   next()
 })
 // app.use(express.static('public'))
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(urlencoded({extended: false}))
 
 
 
@@ -53,6 +50,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
   User.findOne({email})
     .then(user => {
       console.log("user", user._id);
+      app.locals.displayName = user.displayName;
       app.locals.userId = user._id
       if (user) {
         return new Promise((resolve, reject)=> {
@@ -71,9 +69,9 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
     .then((matches) => {
       if (matches) {
         session.displayName = app.locals.displayName;
-        console.log("app.locals.userId", app.locals.userId);
+        console.log("app.locals.displayName", app.locals.displayName);
         session.userId = app.locals.userId;
-        res.json({msg:`${app.locals.userId} logged in`})
+        res.json({msg:`${app.locals.displayName} logged in`})
       } else {
         res.json({msg:'Password does not match'})
       }
