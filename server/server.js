@@ -62,15 +62,15 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
           })
         })
       } else {
-        res.render('login', {msg: 'Email is not found'})
+        res.json({msg: 'Email is not found'})
       }
     })
     .then((matches) => {
       if (matches) {
         session.email = email
-        res.redirect('/')
+        res.json({msg:'User successfully logged in'})
       } else {
-        res.render('login', {msg:'Password does not match'})
+        res.json({msg:'Password does not match'})
       }
     })
     .catch(err)
@@ -106,11 +106,19 @@ app.post('/register', ({ body: { email, password, confirmation } }, res, err) =>
   }
 })
 
+// in postman to register new user
+// {
+//   "email": "c@c.com",
+//     "password": "bbbbbb",
+//     "confirmation": "bbbbbb"
+// }
+
+
 // LOGOUT USER
 app.get('/logout', (req,res) => {
   req.session.destroy( err => {
     if (err) throw err
-    res.redirect('/')
+    res.json({ msg: 'user logged out sucessfully'})
   })
 })
 
