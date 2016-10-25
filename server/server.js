@@ -48,34 +48,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 
 
 
-// LOGIN USER
-app.post('/login', ({session, body: {email, password}}, res, err) => {
-  User.findOne({email})
-    .then(user => {
-      if (user) {
-        return new Promise((resolve, reject)=> {
-          bcrypt.compare(password, user.password, (err, matches) => {
-            if (err){
-              reject(err)
-            } else {
-              resolve(matches)
-            }
-          })
-        })
-      } else {
-        res.json({msg: 'Email is not found'})
-      }
-    })
-    .then((matches) => {
-      if (matches) {
-        session.email = email
-        res.json({msg:`${app.locals.email} logged in`})
-      } else {
-        res.json({msg:'Password does not match'})
-      }
-    })
-    .catch(err)
-})
 
 // REGISTER USER
 app.post('/register', ({ body: { displayName, email, password, confirmation } }, res, err) => {
@@ -110,11 +82,42 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
 
 // in postman to register new user
 // {
-//   "email": "c@c.com",
-//     "password": "bbbbbb",
-//     "confirmation": "bbbbbb"
+//   "displayName": "Z", 
+//   "email": "z@z.com",
+//     "password": "zzzzzz",
+//     "confirmation": "zzzzzz"
 // }
 
+// LOGIN USER
+app.post('/login', ({session, body: {email, password}}, res, err) => {
+  User.findOne({email})
+    .then(user => {
+      if (user) {
+        // set name on the user to be stored in the cookies for the session
+        session.displayName = user.displayName
+        console.log("user",user );
+        return new Promise((resolve, reject)=> {
+          bcrypt.compare(password, user.password, (err, matches) => {
+            if (err){
+              reject(err)
+            } else {
+              resolve(matches)
+            }
+          })
+        })
+      } else {
+        res.json({msg: 'Email is not found'})
+      }
+    })
+    .then((matches) => {
+      if (matches) {
+        res.json({msg:`${session.displayName} logged in`})
+      } else {
+        res.json({msg:'Password does not match'})
+      }
+    })
+    .catch(err)
+})
 
 // LOGOUT USER
 app.get('/logout', (req,res) => {
