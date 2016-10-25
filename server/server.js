@@ -39,6 +39,7 @@ app.use((req, res, next) => {
   console.log("req.session", req.session );
   app.locals.email = req.session && req.session.email;
   app.locals.displayName = req.session && req.session.displayName;
+  app.locals.userId = req.session && req.session.userId;
   next()
 })
 // app.use(express.static('public'))
@@ -96,6 +97,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
       if (user) {
         // set name on the user to be stored in the cookies for the session
         session.displayName = user.displayName
+        session.userId = user._id
         console.log("session", session);
         return new Promise((resolve, reject)=> {
           bcrypt.compare(password, user.password, (err, matches) => {
@@ -128,11 +130,21 @@ app.get('/logout', (req,res) => {
   })
 })
 
-// GETS ALL THE SONGS BACK FROM THE DB
-app.get('/api/getAll', (req, res, err) => {
+// GETS ALL THE SONGS BACK FROM THE DB FOR EACH USER
+// if user passed in to the req.params matches user on the song, 
+// push the song into a new array and send that array as the res to the req
+app.get('/api/getAll/:userId', (req, res, err) => {
+  let userSongArr = [];
   Song
-    .find()
-    .then(songs => res.status(200).json({ songs }))
+    .find(req.session.userId)
+    .then((songArr) => {
+      for (var i = 0; i < songArr.length; i++) {
+        if (req.params.userId === songArr[i].userId) {
+          userSongArr.push(songArr[i]);
+        }
+      }
+      res.status(200).json({ userSongArr })
+    })
     .catch(err)
 }); 
 
@@ -150,6 +162,9 @@ app.get('/api/getOne/:id', (req, res, err) => {
 // POSTS NEW SONG TO DB
 app.post('/api/newSong', (req, res, err) => {
   console.log("req.body", req.body);
+  console.log("req.session.userId", req.session.userId);
+  app.locals.userId = req.session.userId;
+  req.body.userId = app.locals.userId;
   Song
     .create(req.body)
     .then(song => res.status(201).json(song))
