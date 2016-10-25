@@ -90,12 +90,13 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
 
 // LOGIN USER
 app.post('/login', ({session, body: {email, password}}, res, err) => {
+  // find a user by email and then return that user
   User.findOne({email})
     .then(user => {
       if (user) {
         // set name on the user to be stored in the cookies for the session
         session.displayName = user.displayName
-        console.log("user",user );
+        console.log("session", session);
         return new Promise((resolve, reject)=> {
           bcrypt.compare(password, user.password, (err, matches) => {
             if (err){
