@@ -106,15 +106,15 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
             }
           })
         })
+        .then((matches) => {
+          if (matches) {
+            res.status(200).json({msg:`${session.displayName} logged in`})
+          } else {
+            res.status(400).json({msg:'Password does not match'})
+          }
+        })
       } else {
         res.status(400).json({msg: 'Email is not found'})
-      }
-    })
-    .then((matches) => {
-      if (matches) {
-        res.status(200).json({msg:`${session.displayName} logged in`})
-      } else {
-        res.status(400).json({msg:'Password does not match'})
       }
     })
     .catch(err)
@@ -124,7 +124,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
 app.get('/logout', (req,res) => {
   req.session.destroy( err => {
     if (err) throw err
-    res.status(204).json({ msg: 'user logged out sucessfully'})
+    res.status(200).json({ msg: 'user logged out sucessfully'})
   })
 })
 
@@ -170,7 +170,7 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
       console.log("song removed");
     }
   })
-  .then(() => res.status(204).json({msg: "song deleted in DB"}));
+  .then(() => res.status(200).json({msg: "song deleted in DB"}));
 })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
 
