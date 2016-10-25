@@ -59,7 +59,7 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
     User.findOne({ email })
       .then(user => {
         if (user) {
-          res.json({ msg: 'Email is already registered' })
+          res.status(403).json({ msg: 'Email is already registered' })
           } else {
           return new Promise((resolve, reject) => {
             bcrypt.hash(password, 10, (err, hash) => {
@@ -71,12 +71,12 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
             })
           })
           .then(hash => User.create({ displayName, email, password: hash }))
-          .then(() => res.json({msg: `${displayName} is now a registered user`}))
+          .then(() => res.status(201).json({msg: `${displayName} is now a registered user`}))
           .catch(err)
         }
       })
   } else { 
-    res.json({ msg: 'Password & password confirmation do not match' })
+    res.status(400).json({ msg: 'Password & password confirmation do not match' })
   }
 })
 
@@ -107,14 +107,14 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
           })
         })
       } else {
-        res.json({msg: 'Email is not found'})
+        res.status(400).json({msg: 'Email is not found'})
       }
     })
     .then((matches) => {
       if (matches) {
-        res.json({msg:`${session.displayName} logged in`})
+        res.status(200).json({msg:`${session.displayName} logged in`})
       } else {
-        res.json({msg:'Password does not match'})
+        res.status(400).json({msg:'Password does not match'})
       }
     })
     .catch(err)
@@ -124,7 +124,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
 app.get('/logout', (req,res) => {
   req.session.destroy( err => {
     if (err) throw err
-    res.json({ msg: 'user logged out sucessfully'})
+    res.status(204).json({ msg: 'user logged out sucessfully'})
   })
 })
 
@@ -132,7 +132,7 @@ app.get('/logout', (req,res) => {
 app.get('/api/getAll', (req, res, err) => {
   Song
     .find()
-    .then(songs => res.json({ songs }))
+    .then(songs => res.status(200).json({ songs }))
     .catch(err)
 }); 
 
@@ -142,7 +142,7 @@ app.get('/api/getOne/:id', (req, res, err) => {
   let songId = req.params.id;
   Song
     .findById(songId)
-    .then(songs => res.json({ songs }))
+    .then(songs => res.status(200).json({ songs }))
     .catch(err)
 });
  
@@ -152,7 +152,7 @@ app.post('/api/newSong', (req, res, err) => {
   console.log("req.body", req.body);
   Song
     .create(req.body)
-    .then(song => res.json(song))
+    .then(song => res.status(201).json(song))
     .catch(err)
 });
 
@@ -170,7 +170,7 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
       console.log("song removed");
     }
   })
-  .then(() => res.send("song deleted in DB"));
+  .then(() => res.status(204).json({msg: "song deleted in DB"}));
 })                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
 
 
@@ -186,7 +186,7 @@ app.patch('/api/updateSong/:id', (req, res, err) => {
   }, returnNewDocument: true}, {new: true})
   .then((song) => {
     console.log('updated song', song)
-    res.json(song)
+    res.status(200).json(song)
   })
   .catch(err)
 });
