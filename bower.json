@@ -1,0 +1,27 @@
+{
+  "name": "logjam",
+  "description": "Write lyrics, record audio, cloud based",
+  "main": "",
+  "authors": [
+    "Vaughn Walters"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "lyrics",
+    "songs",
+    "audio",
+    "cloud"
+  ],
+  "homepage": "https://github.com/vaughnwalters/logJam",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
