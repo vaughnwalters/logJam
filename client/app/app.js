@@ -20,5 +20,9 @@ const app = angular.module('logjam', ['ngRoute'])
       templateUrl: "partials/newJam.html",
       controller: "LoginCtrl"
     })
+    .when('/viewJam/:id', {
+      templateUrl: "partials/viewJam.html",
+      controller: "viewJam"
+    })
     .otherwise('/');
   })
