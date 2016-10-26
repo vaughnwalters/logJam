@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "start": "node server/server.js",
+    "postinstall": "bower install"
   },
   "repository": {
     "type": "git",
@@ -41,5 +42,8 @@
     "jshint": "^2.9.4",
     "jshint-stylish": "^2.2.1",
     "mongoose": "^4.6.4"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
   }
 }
