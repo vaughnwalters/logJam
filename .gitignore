@@ -37,6 +37,3 @@ scratchpad.js
 
 #redis dump file
 dump.rdb
-
-#compiled sass
-client/styles
