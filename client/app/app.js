@@ -13,7 +13,11 @@ const app = angular.module('logjam', ['ngRoute'])
       templateUrl: "partials/register.html",
       controller: "RegisterCtrl"
     })
-    .when('/myJams', {
+    // .when('/myJams', {
+    //   templateUrl: "partials/myJams.html",
+    //   controller: "MyJamsCtrl"
+    // })
+    .when('/myJams/:userId', {
       templateUrl: "partials/myJams.html",
       controller: "MyJamsCtrl"
     })

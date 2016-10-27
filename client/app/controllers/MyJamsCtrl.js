@@ -6,15 +6,26 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, Database
   // inject factories into the scope as needed
 
   $scope.allUserJams = [];
+  $scope.userId = $routeParams.userId
 
-  $scope.getAllSongs = function(userId) {
-    console.log("getAllSongs userId", userId);
-    DatabaseFactory.getUserJamsFromDb(userId)
-      .then(function(allUserJams) {
-        $scope.allUserJams = allUserJams.data.userSongArr;
-        console.log("allUserJams", $scope.allUserJams);
-      })
-  }
+
+  DatabaseFactory.getUserJamsFromDb($scope.userId)
+  .then(function(allUserJams) {
+    $scope.allUserJams = allUserJams.data.userSongArr;
+    console.log("allUserJams", $scope.allUserJams);
+  })
+
+
+  // $scope.getAllSongs = function(userId) {
+  //   console.log("getAllSongs userId", userId);
+  //   DatabaseFactory.getUserJamsFromDb(userId)
+  //     .then(function(allUserJams) {
+  //       $scope.allUserJams = allUserJams.data.userSongArr;
+  //       console.log("allUserJams", $scope.allUserJams);
+  //     })
+  // }
+
+
 
 
 });
