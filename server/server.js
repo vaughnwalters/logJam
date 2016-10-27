@@ -25,7 +25,14 @@ app.locals.body = {} // i.e. value=(body && body.name) vs. value=body.name
 
 
 
-// middlewares
+// middlewares (transform stream)
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use(session({
   store: new RedisStore({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
@@ -151,8 +158,10 @@ app.get('/api/getAll/:userId', (req, res, err) => {
 
 // FIND ONE SONG BY ID AND RETURN THAT SONG
 app.get('/api/getOne/:id', (req, res, err) => {
+// app.get('/api/getOne/', (req, res, err) => {
   let songId = req.params.id;
   Song
+    // .find()
     .findById(songId)
     .then(songs => res.status(200).json({ songs }))
     .catch(err)
