@@ -1,8 +1,9 @@
 'use strict';
 
 const app = angular.module('logjam', ['ngRoute']) 
+  .constant('LogJamUrl', "https://vw-logjam.herokuapp.com")
 
-  app.config($routeProvider => {
+  app.config(($routeProvider) => {
     $routeProvider
     .when('/', {
       templateUrl: "partials/login.html",
@@ -22,7 +23,7 @@ const app = angular.module('logjam', ['ngRoute'])
     })
     .when('/viewJam/:id', {
       templateUrl: "partials/viewJam.html",
-      controller: "viewJam"
+      controller: "ViewJamCtrl"
     })
     .otherwise('/');
   })

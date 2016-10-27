@@ -1,1 +1,13 @@
 <h1>My Jams</h1>
+
+
+<!-- enter userId into getSong function and then will retrieve all songs of that user from db -->
+
+<a ng-click="getAllSongs('580fe4dbdd9d110010a9506a')">Get All Songs</a>
+
+<div ng-repeat="song in allUserJams">
+
+<p>{{song.title}}</p>
+
+
+
