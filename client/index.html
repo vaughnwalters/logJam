@@ -18,8 +18,6 @@
 <!-- need to include the quote in quotes for it to look for a string, otherwise interprets it as data with a property of html if i use a navbar here-->
 <!-- ​  <div ng-include="'partials/navbar.html'"></div> -->
 
-  <div ng-view><div>  
-
 <!-- third party libs -->
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/lib/materialize/dist/js/materialize.min.js"></script>
@@ -28,11 +26,14 @@
 <!-- application scripts -->
   <script src="app/app.js"></script>
 <!-- factories -->
+  <script src="/app/factories/DatabaseFactory.js"></script>
 <!-- controllers -->
+  <script src="/app/controllers/NavCtrl.js"></script>
   <script src="/app/controllers/LoginCtrl.js"></script>
   <script src="/app/controllers/RegisterCtrl.js"></script>
   <script src="/app/controllers/MyJamsCtrl.js"></script>
   <script src="/app/controllers/NewJamCtrl.js"></script>
+  <script src="/app/controllers/ViewJamCtrl.js"></script>
 
 </body>
 </html> 
