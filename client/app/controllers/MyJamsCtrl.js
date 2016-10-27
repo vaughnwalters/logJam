@@ -17,7 +17,6 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, Database
   }
 
 
-
 });
 
 
