@@ -117,7 +117,7 @@ app.post('/login', ({session, body: {email, password}}, res, err) => {
         })
         .then((matches) => {
           if (matches) {
-            res.status(200).json(session)
+            res.status(200).json({userId: session.userId, displayName: session.displayName})
           } else {
             res.status(400).json({msg:'Password does not match'})
           }
