@@ -15,9 +15,15 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
 
   let getUserJamsFromDb = function(userId) {
     console.log("userId", userId );
-    return  $http.get(`${LogJamUrl}/api/getAll/${userId}`)
+    return $http.get(`${LogJamUrl}/api/getAll/${userId}`)
   }
 
+
+  let postNewJam = function(song) {
+    console.log("song", song);
+    return $http.post(`${LogJamUrl}/api/newSong/`, song)
+
+  }
 
   // let getUserJamsFromDb = function(userId) {
   //   return $q(function(resolve, reject) {
@@ -37,7 +43,7 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
 
 
 // don't forget to return any functions created in this factory
-  return {getJamFromDb, getUserJamsFromDb};
+  return {getJamFromDb, getUserJamsFromDb, postNewJam};
   
 });
 

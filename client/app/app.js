@@ -21,9 +21,9 @@ const app = angular.module('logjam', ['ngRoute'])
       templateUrl: "partials/myJams.html",
       controller: "MyJamsCtrl"
     })
-    .when('/newJam', {
+    .when('/newJam/:userId', {
       templateUrl: "partials/newJam.html",
-      controller: "LoginCtrl"
+      controller: "NewJamCtrl"
     })
     .when('/viewJam/:id', {
       templateUrl: "partials/viewJam.html",

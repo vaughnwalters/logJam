@@ -8,12 +8,18 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, Database
   $scope.allUserJams = [];
   $scope.userId = $routeParams.userId
 
-
   DatabaseFactory.getUserJamsFromDb($scope.userId)
   .then(function(allUserJams) {
     $scope.allUserJams = allUserJams.data.userSongArr;
     console.log("allUserJams", $scope.allUserJams);
   })
+
+  
+
+});
+
+
+
 
 
   // $scope.getAllSongs = function(userId) {
@@ -25,17 +31,3 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, Database
   //     })
   // }
 
-
-
-
-});
-
-
-  // $scope.getSong = function(songId) {
-  //   console.log("getSong");
-  //   DatabaseFactory.getJamFromDb(songId)
-  //     .then(function(jam) {
-  //       console.log("jam.data", jam.data.songs);
-  //       $scope.jam = jam.data.songs;
-  //   });
-  // }    
