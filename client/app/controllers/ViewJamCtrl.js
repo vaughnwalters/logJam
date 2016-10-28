@@ -13,4 +13,6 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, Databas
       $scope.jam = jam.data.songs;
   });
 
+  
+
 });
