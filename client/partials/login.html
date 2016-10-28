@@ -1,5 +1,21 @@
 <h1>Login</h1>
+<div class="container">
+  <form class="col s12" ng-submit="login()">
+  <div class="row">
+      <div>
+        <input placeholder="email" id="email" type="email" class="validate" ng-model="email">
+      </div>
+      <div>
+        <input placeholder="password" id="password" type="password" class="validate" ng-model="password">
 
-<!-- <a ng-href="/#/myJams/{{song._id}}">Login and go to myJams page</a>
+      </div>
+      <button class="waves-effect waves-light btn" type="submit" class="btn">Login</button>
+      <a href='/#/register' class="btn">Register</a>
+    </div>
+  </form>
+</div>
+
+
+
+<!--  <a ng-href="/#/myJams/580fe18714b7d10010fed713">Login and go to myJams page</a>
  -->
- <a ng-href="/#/myJams/580fe18714b7d10010fed713">Login and go to myJams page</a>
