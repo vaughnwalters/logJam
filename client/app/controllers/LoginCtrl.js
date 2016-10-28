@@ -5,6 +5,7 @@ console.log("LoginCtrl.js loading");
 app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFactory) {
   // inject factories into the scope as needed
 
+
   let user = {};
 
   $scope.login = () => {
@@ -14,8 +15,9 @@ app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFacto
     }
     AuthFactory.loginUser(user)
     .then((userObj) => {
-      console.log("userObj", userObj);
-      $location.path('/profile')
+      console.log("userObj", userObj.data.userId);
+      let userId = userObj.data.userId;
+      $location.path(`/myJams/${userId}`)
     })
 
   
