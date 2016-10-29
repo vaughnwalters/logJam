@@ -22,7 +22,6 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
   let postNewJam = function(song) {
     console.log("song", song);
     return $http.post(`${LogJamUrl}/api/newSong/`, song)
-
   }
 
   // let getUserJamsFromDb = function(userId) {
