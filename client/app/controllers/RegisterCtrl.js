@@ -16,6 +16,8 @@ app.controller("RegisterCtrl", function ($scope, $routeParams, $location, AuthFa
   AuthFactory.createUser(newUser)
     .then((whut) => { 
       console.log(whut)
+      $location.path(`/login`)
+
     })
   }
 
