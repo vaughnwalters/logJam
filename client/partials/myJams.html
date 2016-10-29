@@ -1,11 +1,16 @@
 <h1>My Jams</h1>
 
 
+<div>
+  <input id="search" type="search" placeholder="search jams" ng-model="searchJams" required>
+</div>
+
+
 <!-- enter userId into getSong function and then will retrieve all songs of that user from db -->
 
 <a ng-href="/#/newJam/{{userId}}">New Jam</a>
 
-<div ng-repeat="song in allUserJams">
+<div ng-repeat="song in allUserJams | filter: searchJams">
 
 <a ng-href="/#/viewJam/{{song._id}}">{{song.title}}</a>
 
