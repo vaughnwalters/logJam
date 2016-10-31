@@ -9,6 +9,8 @@ app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, $l
   let newJam = {}
 
   console.log("newJam", newJam);
+  // $scope.title = "ha ha "
+  // $scope.lyric = "lyric go here" 
 
   $scope.saveNewJam = () => {
     newJam = {
@@ -25,8 +27,3 @@ app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, $l
   }
 });
 
-
-    // $http.post('/api/newSong', newJam)
-    // .then(() => {
-    //   $location.path('/')
-    // })

@@ -28,6 +28,11 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
     return $http.get(`${LogJamUrl}/api/deleteSong/${jamId}`)
   }
 
+  let editJamInDb = function(jamId, song) {
+    console.log(song)
+    return $http.put(`${LogJamUrl}/api/updateSong/${jamId}`, JSON.stringify(song))
+  }
+
   // let getUserJamsFromDb = function(userId) {
   //   return $q(function(resolve, reject) {
   //     $http.get(`${LogJamUrl}/api/getOne/${jamId}`)
@@ -46,7 +51,7 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
 
 
 // don't forget to return any functions created in this factory
-  return {getJamFromDb, getUserJamsFromDb, postNewJam, deleteJamFromDb};
+  return {getJamFromDb, getUserJamsFromDb, postNewJam, deleteJamFromDb, editJamInDb};
   
 });
 

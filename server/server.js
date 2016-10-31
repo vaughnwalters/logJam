@@ -29,6 +29,7 @@ app.use(json());
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -199,7 +200,7 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
 })
 
 // UPDATE SONG LYRICS
-app.patch('/api/updateSong/:id', (req, res, err) => {
+app.put('/api/updateSong/:id', (req, res, err) => {
   let id = {
     _id: req.params.id
   };
