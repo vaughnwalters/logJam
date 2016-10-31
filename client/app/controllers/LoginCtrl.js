@@ -17,7 +17,7 @@ app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFacto
     .then((userObj) => {
       console.log("userObj", userObj.data.userId);
       let userId = userObj.data.userId;
-      $location.path(`/myJams/${userId}`)
+      $location.path(`/${userId}/myJams`)
     })
 
   

@@ -1,15 +1,16 @@
 "use strict";
 
-console.log("NewJamCtrl.js loading");
+console.log("EditJamCtrl.js loading");
 
-app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, AuthFactory, $location) {
+app.controller("EditJamCtrl", function ($scope, DatabaseFactory, $routeParams, $location) {
 
-  $scope.userId = $routeParams.userId
-  let userId = $routeParams.userId
+  let songId = $routeParams.id
 
-  let newJam = {}
+  let editJam = {}
 
   console.log("newJam", newJam);
+  // $scope.title = "ha ha "
+  // $scope.lyric = "lyric go here" 
 
   $scope.saveNewJam = () => {
     newJam = {
@@ -24,11 +25,5 @@ app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, Au
       $location.path(`/${userId}/myJams`)
     })
   }
-
-  $scope.logout = () => {
-    AuthFactory.logoutUser()
-    .then(() => $location.path('/'))
-  }
-
 });
 

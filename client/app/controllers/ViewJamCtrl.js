@@ -2,7 +2,7 @@
 
 console.log("ViewJamCtrl.js loading");
 
-app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, DatabaseFactory) {
+app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory) {
   // inject factories into the scope as needed
 
   $scope.songId = $routeParams.id  
@@ -22,7 +22,7 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, Databas
     DatabaseFactory.editJamInDb($routeParams.id, {title: $scope.title, lyric: $scope.lyric})
     .then(() => {
       // console.log("songObj", songObj);
-      $location.path(`/myJams/${userId}`)      
+      $location.path(`/${userId}/myJams`)      
     })
   }
 
@@ -30,9 +30,16 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, Databas
     DatabaseFactory.deleteJamFromDb(songId._id)
     .then(() => {
       console.log("userId", userId);
-      $location.path(`/myJams/${userId}`)
+      $location.path(`/${userId}/myJams`)
     })
   }
+
+  $scope.logout = () => {
+    AuthFactory.logoutUser()
+      .then(() => $location.path('/'))
+  }
+
 });
+
 
 
