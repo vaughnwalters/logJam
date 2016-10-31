@@ -24,6 +24,10 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
     return $http.post(`${LogJamUrl}/api/newSong/`, song)
   }
 
+  let deleteJamFromDb = function(jamId) {
+    return $http.get(`${LogJamUrl}/api/deleteSong/${jamId}`)
+  }
+
   // let getUserJamsFromDb = function(userId) {
   //   return $q(function(resolve, reject) {
   //     $http.get(`${LogJamUrl}/api/getOne/${jamId}`)
@@ -42,7 +46,7 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
 
 
 // don't forget to return any functions created in this factory
-  return {getJamFromDb, getUserJamsFromDb, postNewJam};
+  return {getJamFromDb, getUserJamsFromDb, postNewJam, deleteJamFromDb};
   
 });
 
