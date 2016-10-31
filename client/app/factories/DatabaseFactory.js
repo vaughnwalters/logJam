@@ -15,7 +15,7 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
 
   let getUserJamsFromDb = function(userId) {
     console.log("userId", userId );
-    return $http.get(`${LogJamUrl}/api/getAll/${userId}`)
+    return $http.get(`${LogJamUrl}/api/getAll/`)
   }
 
 

@@ -1,8 +1,8 @@
 'use strict';
 
 const app = angular.module('logjam', ['ngRoute']) 
-  .constant('LogJamUrl', "http://localhost:3000")
-  // .constant('LogJamUrl', "https://vw-logjam.herokuapp.com")
+  // .constant('LogJamUrl', "http://localhost:3000")
+  .constant('LogJamUrl', "https://vw-logjam.herokuapp.com")
 
   app.config(($routeProvider) => {
     $routeProvider
@@ -14,11 +14,11 @@ const app = angular.module('logjam', ['ngRoute'])
       templateUrl: "partials/register.html",
       controller: "RegisterCtrl"
     })
-    .when('/:userId/myJams', {
+    .when('/myJams', {
       templateUrl: "partials/myJams.html",
       controller: "MyJamsCtrl"
     })
-    .when('/:userId/newJam', {
+    .when('/newJam', {
       templateUrl: "partials/newJam.html",
       controller: "NewJamCtrl"
     })

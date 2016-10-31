@@ -3,6 +3,7 @@
 app.factory("AuthFactory", function(LogJamUrl, $http) {
 
   let loginUser = function(loginCreds) {
+    console.log("login in AuthFactory clicked");
     return $http.post(`${LogJamUrl}/login`, loginCreds)
   };
 

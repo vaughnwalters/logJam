@@ -22,7 +22,7 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
     DatabaseFactory.editJamInDb($routeParams.id, {title: $scope.title, lyric: $scope.lyric})
     .then(() => {
       // console.log("songObj", songObj);
-      $location.path(`/${userId}/myJams`)      
+      $location.path(`/myJams`)      
     })
   }
 
@@ -30,7 +30,7 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
     DatabaseFactory.deleteJamFromDb(songId._id)
     .then(() => {
       console.log("userId", userId);
-      $location.path(`/${userId}/myJams`)
+      $location.path(`/myJams`)
     })
   }
 

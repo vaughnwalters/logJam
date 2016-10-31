@@ -9,6 +9,7 @@ app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFacto
   let user = {};
 
   $scope.login = () => {
+    console.log("login clicked");
     user = {
       email: $scope.email,
       password: $scope.password
@@ -16,11 +17,10 @@ app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFacto
     AuthFactory.loginUser(user)
     .then((userObj) => {
       console.log("userObj", userObj.data.userId);
-      let userId = userObj.data.userId;
-      $location.path(`/${userId}/myJams`)
+      // let userId = userObj.data.userId;
+      $location.path(`/myJams`)
     })
 
-  
   }
 
 });

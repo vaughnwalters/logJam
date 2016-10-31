@@ -15,10 +15,10 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, AuthFact
 
 
   $scope.allUserJams = [];
-  $scope.userId = $routeParams.userId
+  // $scope.userId = $routeParams.userId
 
   // GET USER JAMS
-  DatabaseFactory.getUserJamsFromDb($scope.userId)
+  DatabaseFactory.getUserJamsFromDb()
   .then(function(allUserJams) {
     $scope.allUserJams = allUserJams.data.userSongArr;
     console.log("allUserJams", $scope.allUserJams);
