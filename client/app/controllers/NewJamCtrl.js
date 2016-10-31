@@ -21,7 +21,7 @@ app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, Au
     DatabaseFactory.postNewJam(newJam)
     .then((newJam) => { 
       console.log("newJam", newJam);
-      $location.path(`/${userId}/myJams`)
+      $location.path(`/myJams`)
     })
   }
 

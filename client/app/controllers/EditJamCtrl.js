@@ -22,7 +22,7 @@ app.controller("EditJamCtrl", function ($scope, DatabaseFactory, $routeParams, $
     DatabaseFactory.postNewJam(newJam)
     .then((newJam) => { 
       console.log("newJam", newJam);
-      $location.path(`/${userId}/myJams`)
+      $location.path(`/myJams`)
     })
   }
 });
