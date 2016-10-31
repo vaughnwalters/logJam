@@ -1,3 +1,21 @@
 body {
   color: red;
+  font-family: monospace;
+}
+
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    border-bottom: none;
+}
+
+// myJams
+nav .brand-logo {
+  margin-left: 20px;
+}
+nav form {
+  margin-left: 180px;
+  width: 300px;
+}
+nav .nav-wrapper form,
+nav .nav-wrapper form .input-field {
+  height: 100%;
 }
