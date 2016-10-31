@@ -20,8 +20,8 @@ app.use(express.static('client'));
 app.use(json());
 
 
-app.locals.errors = {} // errors & body added to avoid guard statements
-app.locals.body = {} // i.e. value=(body && body.name) vs. value=body.name
+// app.locals.errors = {} // errors & body added to avoid guard statements
+// app.locals.body = {} // i.e. value=(body && body.name) vs. value=body.name
 
 
 
@@ -38,8 +38,8 @@ app.use(session({
     url: process.env.REDIS_URL || 'redis://localhost:6379'
   }),
   secret: 'logjam',
-  resave: true,
-  saveUninitialized: true
+  resave: false,
+  saveUninitialized: false
 }))
 
 app.use((req, res, next) => {
@@ -50,7 +50,7 @@ app.use((req, res, next) => {
   next()
 })
 // app.use(express.static('public'))
-app.use(bodyParser.urlencoded({extended: false}))
+// app.use(bodyParser.urlencoded({extended: false}))
 
 
 
@@ -79,6 +79,7 @@ app.post('/register', ({ body: { displayName, email, password, confirmation } },
             })
           })
           .then(hash => User.create({ displayName, email, password: hash }))
+          // .then(() => res.status(201).json({msg: `${displayName} is now a registered user`}))
           .then(() => res.status(201).json({msg: `${displayName} is now a registered user`}))
           .catch(err)
         }
@@ -172,8 +173,8 @@ app.get('/api/getOne/:id', (req, res, err) => {
 app.post('/api/newSong', (req, res, err) => {
   console.log("req.body", req.body);
   console.log("req.session.userId", req.session.userId);
-  app.locals.userId = req.session.userId;
-  req.body.userId = app.locals.userId;
+  // app.locals.userId = req.session.userId;
+  // req.body.userId = app.locals.userId;
   Song
     .create(req.body)
     .then(song => res.status(201).json(song))
@@ -195,8 +196,7 @@ app.get('/api/deleteSong/:id', (req, res, err) => {
     }
   })
   .then(() => res.status(200).json({msg: "song deleted in DB"}));
-})                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-
+})
 
 // UPDATE SONG LYRICS
 app.patch('/api/updateSong/:id', (req, res, err) => {

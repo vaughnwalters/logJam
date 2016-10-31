@@ -1,7 +1,21 @@
 <h1>View Jam</h1>
 
+<!-- NAV -->
+  <nav>
+    <div class="nav-wrapper">
+      <span class="brand-logo left">LOGJAM</span>
+      <ul class="right">
+        <li><a ng-href="/#/myJams/{{jam.userId}}">My Jams</a></li>
+        <li><a ng-href="/#/newJam/{{jam.userId}}">New Jam</a></li>
+        <li><a ng-click="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+
 <!-- ng-click will pass in songObj which has access to song ID-->
 
 <p>{{jam.title}}</p>
-<pre>{{jam.lyric}}</pre>
+<pre><span>{{jam.lyric}}</span></pre>
 <!-- <p>{{jam.audio}}</p> -->
