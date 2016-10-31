@@ -14,10 +14,31 @@
 
 
 
+<!-- TEST -->
 
+<form ng-submit="saveEditJam()">
+  
+  <div>
+    <input id="title" name="title" type="text" ng-model="title" placeholder="title">
+    <label for="title"></label>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
+      <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
+    </div>  
+  </div>
+  <button type="submit" class="btn">Save</button>
+</form>
+
+
+
+
+
+
+<!-- 
 <p>{{jam.title}}</p>
 <pre><span>{{jam.lyric}}</span></pre>
-<!-- <p>{{jam.audio}}</p> -->
+ --><!-- <p>{{jam.audio}}</p> -->
 
 <!-- ng-click will pass in songObj which has access to song ID-->
 <a ng-click='deleteJam(jam)' class="btn">Delete</a>

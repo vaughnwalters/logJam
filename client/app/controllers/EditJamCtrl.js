@@ -1,12 +1,12 @@
 "use strict";
 
-console.log("NewJamCtrl.js loading");
+console.log("EditJamCtrl.js loading");
 
-app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, $location) {
+app.controller("EditJamCtrl", function ($scope, DatabaseFactory, $routeParams, $location) {
 
-  let userId = $routeParams.userId
+  let songId = $routeParams.id
 
-  let newJam = {}
+  let editJam = {}
 
   console.log("newJam", newJam);
   // $scope.title = "ha ha "
