@@ -5,8 +5,8 @@
     <div class="nav-wrapper">
       <span class="brand-logo left">LOGJAM</span>
       <ul class="right">
-        <li><a ng-href="/#/myJams/{{jam.userId}}">My Jams</a></li>
-        <li><a ng-href="/#/newJam/{{jam.userId}}">New Jam</a></li>
+        <li><a ng-href="/#/{{jam.userId}}/myJams">My Jams</a></li>
+        <li><a ng-href="/#/{{jam.userId}}/newJam">New Jam</a></li>
         <li><a ng-click="logout()">Logout</a></li>
       </ul>
     </div>

@@ -26,7 +26,7 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, AuthFact
 
   $scope.logout = () => {
     AuthFactory.logoutUser()
-      .then(() => $location.path('/'))
+    .then(() => $location.path('/'))
   }
 
 

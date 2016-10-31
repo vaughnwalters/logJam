@@ -1,5 +1,17 @@
 <h1>New Jam</h1>
 
+  <nav>
+    <div class="nav-wrapper">
+      <span class="brand-logo left">LOGJAM</span>
+      <ul class="right">
+        <li><a ng-href="/#/{{userId}}/myJams">My Jams</a></li>
+        <li><a ng-href="/#/{{userId}}/newJam">New Jam</a></li>
+        <li><a ng-click="logout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
 <form ng-submit="saveNewJam()">
   
   <div>
