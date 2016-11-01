@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("ViewJamCtrl.js loading");
-
 app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory) {
   // inject factories into the scope as needed
 
@@ -11,8 +9,6 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
 
   DatabaseFactory.getJamFromDb($scope.songId)
   .then(function(jam) {
-    userId = jam.data.songs.userId;
-    console.log("jam.data", jam.data.songs);
     $scope.jam = jam.data.songs;
     $scope.title = jam.data.songs.title;
     $scope.lyric = jam.data.songs.lyric;
@@ -21,7 +17,6 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
   $scope.saveEditJam = (songId) => {
     DatabaseFactory.editJamInDb($routeParams.id, {title: $scope.title, lyric: $scope.lyric})
     .then(() => {
-      // console.log("songObj", songObj);
       $location.path(`/myJams`)      
     })
   }
@@ -29,7 +24,6 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
   $scope.deleteJam = (songId) => {  
     DatabaseFactory.deleteJamFromDb(songId._id)
     .then(() => {
-      console.log("userId", userId);
       $location.path(`/myJams`)
     })
   }

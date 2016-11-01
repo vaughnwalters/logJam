@@ -1,7 +1,5 @@
 "use strict";
 
-console.log("MyJamsCtrl.js loading");
-
 app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory) {
   // inject factories into the scope as needed
 
@@ -21,7 +19,6 @@ app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, AuthFact
   DatabaseFactory.getUserJamsFromDb()
   .then(function(allUserJams) {
     $scope.allUserJams = allUserJams.data.userSongArr;
-    console.log("allUserJams", $scope.allUserJams);
   })
 
   $scope.logout = () => {

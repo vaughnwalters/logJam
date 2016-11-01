@@ -1,6 +1,5 @@
 "use strict";
 
-console.log("RegisterCtrl.js loading");
 
 app.controller("RegisterCtrl", function ($scope, $routeParams, $location, AuthFactory) {
   // inject factories into the scope as needed
@@ -12,15 +11,13 @@ app.controller("RegisterCtrl", function ($scope, $routeParams, $location, AuthFa
       password: $scope.password,
       confirmation: $scope.confirmation
     }
-  console.log("newUser", newUser);
+  // console.log("newUser", newUser);
   AuthFactory.createUser(newUser)
     .then((whut) => { 
-      console.log(whut)
+      // console.log(whut)
       $location.path(`/login`)
-
     })
   }
-
 });
 
 
