@@ -1,7 +1,7 @@
 'use strict';
 
-const app = angular.module('logjam', ['ngRoute']) 
-  .constant('LogJamUrl', "http://localhost:3000")
+const app = angular.module('logjam', ['ngRoute', 'angularAudioRecorder']) 
+  // .constant('LogJamUrl', "http://localhost:3000")
   // .constant('LogJamUrl', "https://vw-logjam.herokuapp.com")
 
   app.config(($routeProvider) => {

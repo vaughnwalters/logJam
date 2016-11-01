@@ -1,18 +1,18 @@
 "user strict";
 
-app.factory("AuthFactory", function(LogJamUrl, $http) {
+app.factory("AuthFactory", function($http) {
 
   let loginUser = function(loginCreds) {
     // console.log("login in AuthFactory clicked");
-    return $http.post(`${LogJamUrl}/login`, loginCreds)
+    return $http.post(`/login`, loginCreds)
   };
 
   let createUser = function(registerCreds) {
-    return $http.post(`${LogJamUrl}/register`, registerCreds)
+    return $http.post(`/register`, registerCreds)
   };
 
   let logoutUser = function() {
-    return $http.get(`${LogJamUrl}/logout`)
+    return $http.get(`/logout`)
   }
 
 // don't forget to return any functions created in this factory
