@@ -4,7 +4,7 @@
         <div ng-if="recorder.isAvailable">
 
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
-                Logjam needs permission to use your microphone.
+                Logjam needs USE your microphone.
             </div>
             <button ng-click="recorder.startRecord()" type="button"
                     ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
@@ -19,7 +19,7 @@
                 {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
             </button>
 
-            <button ng-click="recorder.save()" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+            <button ng-click="recorder.save('silly')" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                 Download
             </button>
 
