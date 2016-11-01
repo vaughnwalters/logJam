@@ -1,6 +1,6 @@
 "use strict";
 
-app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
+app.factory("DatabaseFactory", function($q, $http) {
 
   // let jamId = `580fe610dd9d110010a9506d`
 
@@ -8,29 +8,29 @@ app.factory("DatabaseFactory", function(LogJamUrl, $q, $http) {
     // console.log("LogJamUrl", LogJamUrl);
     // console.log("jamId", jamId);
 
-    return $http.get(`${LogJamUrl}/api/getOne/${jamId}`)
+    return $http.get(`/api/getOne/${jamId}`)
   };
 
 
 
   let getUserJamsFromDb = function() {
     // console.log("userId", userId );
-    return $http.get(`${LogJamUrl}/api/getAll/`)
+    return $http.get(`/api/getAll/`)
   }
 
 
   let postNewJam = function(song) {
     // console.log("song", song);
-    return $http.post(`${LogJamUrl}/api/newSong/`, song)
+    return $http.post(`/api/newSong/`, song)
   }
 
   let deleteJamFromDb = function(jamId) {
-    return $http.get(`${LogJamUrl}/api/deleteSong/${jamId}`)
+    return $http.get(`/api/deleteSong/${jamId}`)
   }
 
   let editJamInDb = function(jamId, song) {
     // console.log(song)
-    return $http.put(`${LogJamUrl}/api/updateSong/${jamId}`, JSON.stringify(song))
+    return $http.put(`/api/updateSong/${jamId}`, JSON.stringify(song))
   }
 
   // let getUserJamsFromDb = function(userId) {
