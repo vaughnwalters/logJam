@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory) {
+app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory, $rootScope) {
   // inject factories into the scope as needed
 
   $(document).ready(function () {
@@ -14,7 +14,7 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
   DatabaseFactory.getJamFromDb($scope.songId)
   .then(function(jam) {
     $scope.jam = jam.data.songs;
-    $scope.title = jam.data.songs.title;
+    $rootScope.title = jam.data.songs.title;
     $scope.lyric = jam.data.songs.lyric;
   });
 

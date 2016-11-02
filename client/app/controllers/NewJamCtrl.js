@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, AuthFactory, $location) {
+app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, AuthFactory, $location, $rootScope) {
 
   $(document).ready(function () {
     $('a[rel*=recordModal]').leanModal({ top : 200, closeButton: ".modal_close" });       
