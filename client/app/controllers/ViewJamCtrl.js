@@ -5,8 +5,14 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
 
   $(document).ready(function () {
     // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-    $('.modal-trigger').leanModal();
+    // $('.modal-trigger').leanModal();
+    $('a[rel*=recordModal]').leanModal({ top : 200, closeButton: ".modal_close" });       
+
   });
+
+  // $(function() {
+  //   $('a[rel*=recordModal]').leanModal({ top : 200, closeButton: ".modal_close" });       
+  // });
 
   $scope.songId = $routeParams.id  
   let userId;
