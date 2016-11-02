@@ -2,15 +2,7 @@
 
 app.controller("NewJamCtrl", function ($scope, DatabaseFactory, $routeParams, AuthFactory, $location) {
 
-
   $(document).ready(function () {
-      // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-      $('.modal-trigger').leanModal();
-
-    // $("#trigger_id").leanModal({ top : 200, overlay : 0.4, closeButton: ".modal_close" });
-  });
-
-  $(function() {
     $('a[rel*=recordModal]').leanModal({ top : 200, closeButton: ".modal_close" });       
   });
 
