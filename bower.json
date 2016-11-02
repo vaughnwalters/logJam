@@ -26,7 +26,8 @@
     "materialize": "^0.97.7",
     "jquery": "^3.1.1",
     "wavesurfer.js": "^1.2.2",
-    "angular-audio-recorder": "^1.4.4"
+    "angular-audio-recorder": "^1.4.4",
+    "angular-materialize": "^0.2.1"
   },
   "resolutions": {
     "wavesurfer.js": "~1.0.0"
