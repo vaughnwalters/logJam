@@ -30,5 +30,5 @@ const app = angular.module('logjam', ['ngRoute', 'angularAudioRecorder', 'ui.mat
       templateUrl: "partials/editJam.html",
       controller: "EditJamCtrl"
     })
-    // .otherwise('/');
+    .otherwise('/');
   })
