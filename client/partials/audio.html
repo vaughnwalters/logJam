@@ -2,12 +2,11 @@
 
     <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit">
 
-        <input type="text" ng-model="title" placeholder="what do you want to name the file?">
     
         <div ng-if="recorder.isAvailable">
 
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
-                Can Logjam pretty please use your microphone to record?
+                Can Logjam use your microphone to record?
             </div>
             <button ng-click="recorder.startRecord()" type="button"
                     ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
@@ -51,6 +50,7 @@
             use this feature.
         </div>
  
+        <input type="text" ng-model="title" placeholder="what do you want to name the file?">
     </ng-audio-recorder>
 
 </div>

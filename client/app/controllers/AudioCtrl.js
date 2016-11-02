@@ -5,7 +5,7 @@
   //     'angularAudioRecorder'
   //   ])
     app.controller('AudioCtrl', function ($scope, $timeout) {
-      console.log("Loaded");
+      // console.log("Loaded");
       $scope.timeLimit = 10;
 
 

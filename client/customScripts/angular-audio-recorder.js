@@ -223,11 +223,11 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
         cordovaMedia.url = recorderUtils.cordovaAudioUrl(control.id);
         //mobile app needs wav extension to save recording
         cordovaMedia.recorder = new Media(cordovaMedia.url, function () {
-          console.log('Media successfully played');
+          // console.log('Media successfully played');
         }, function (err) {
-          console.log('Media could not be launched' + err.code, err);
+          // console.log('Media could not be launched' + err.code, err);
         });
-        console.log('CordovaRecording');
+        // console.log('CordovaRecording');
         cordovaMedia.recorder.startRecord();
       }
       else if (service.isHtml5) {
@@ -235,7 +235,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
         if (!recordHandler) {
           return;
         }
-        console.log('HTML5Recording');
+        // console.log('HTML5Recording');
         recordHandler.clear();
         recordHandler.record();
       }
@@ -245,7 +245,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
           //Stop recording if the flash object is not ready
           return;
         }
-        console.log('FlashRecording');
+        // console.log('FlashRecording');
         recordHandler.record(id, 'audio.wav');
       }
 
@@ -317,7 +317,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
           completed(blob);
         });
       }, function (err) {
-        console.log('Could not retrieve file, error code:', err.code);
+        // console.log('Could not retrieve file, error code:', err.code);
       });
     } else if (service.isHtml5) {
       recordHandler.stop();
@@ -340,7 +340,7 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
 
     if (service.isCordova) {
       cordovaMedia.player = new Media(cordovaMedia.url, playbackOnEnded, function () {
-        console.log('Playback failed');
+        // console.log('Playback failed');
       });
       cordovaMedia.player.play();
       playbackOnStart();
@@ -389,12 +389,12 @@ var RecorderController = function (element, service, recorderUtils, $scope, $tim
     }
 
     var blobUrl = window.URL.createObjectURL(control.audioModel);
-    console.log("blob", blobUrl);
+    // console.log("blob", blobUrl);
     var a = document.createElement('a');
     a.href = blobUrl;
     a.target = '_blank';
     a.download = fileName;
-    console.log("a", a);
+    // console.log("a", a);
     // var click = document.createEvent("Event");
     // click.initEvent("click", true, true);
     // console.log("click", click);
@@ -663,12 +663,12 @@ angular.module('angularAudioRecorder.services')
               break;
 
             case "microphone_connected":
-              console.log('Permission to use MIC granted');
+              // console.log('Permission to use MIC granted');
               swfHandlerConfig.allowed = true;
               break;
 
             case "microphone_not_connected":
-              console.log('Permission to use MIC denied');
+              // console.log('Permission to use MIC denied');
               swfHandlerConfig.allowed = false;
               break;
 
@@ -746,7 +746,7 @@ angular.module('angularAudioRecorder.services')
           //Flash recorder external events
           service.isHtml5 = false;
           if (!swfHandlerConfig.isInstalled()) {
-            console.log('Flash is not installed, application cannot be initialized');
+            // console.log('Flash is not installed, application cannot be initialized');
             return;
           }
           swfHandlerConfig.isAvailable = true;
@@ -1016,7 +1016,7 @@ angular.module('angularAudioRecorder.services')
 
           var tracker = callback + '|' + track;
           if (object.$$appendTrackers.indexOf(tracker) > -1) {
-            console.log('Already appended: ', tracker);
+            // console.log('Already appended: ', tracker);
             return;
           }
 
@@ -1540,7 +1540,7 @@ angular.module('angularAudioRecorder.services')
   var MP3ConversionWorker = function (me, params) {
     //should not reference any variable in parent scope as it will executed in its
     //on isolated scope
-    console.log('MP3 conversion worker started.');
+    // console.log('MP3 conversion worker started.');
     if (typeof lamejs === 'undefined') {
       importScripts(params.lameJsUrl);
     }
@@ -1565,7 +1565,7 @@ angular.module('angularAudioRecorder.services')
 
     var encode = function (arrayBuffer) {
       wav = lame.WavHeader.readHeader(new DataView(arrayBuffer));
-      console.log('wave:', wav);
+      // console.log('wave:', wav);
       samples = new Int16Array(arrayBuffer, wav.dataOffset, wav.dataLen / 2);
       mp3Encoder = new lame.Mp3Encoder(wav.channels, wav.sampleRate, config.bitRate || 128);
 
@@ -1582,7 +1582,7 @@ angular.module('angularAudioRecorder.services')
       var mp3buf = mp3Encoder.flush();
       appendToBuffer(mp3buf);
       self.postMessage({cmd: 'end', buf: dataBuffer});
-      console.log('done encoding');
+      // console.log('done encoding');
       clearBuffer();//free up memory
     };
 
@@ -1630,7 +1630,7 @@ angular.module('angularAudioRecorder.services')
       var conversionId = 'conversion_' + Date.now(),
         tag = conversionId + ":"
         ;
-      console.log(tag, 'Starting conversion');
+      // console.log(tag, 'Starting conversion');
       var preferredConfig = {}, onSuccess, onError;
       switch (typeof arguments[1]) {
         case 'object':
@@ -1664,7 +1664,7 @@ angular.module('angularAudioRecorder.services')
         startTime = Date.now();
 
       fileReader.onload = function (e) {
-        console.log(tag, "Passed to BG process");
+        // console.log(tag, "Passed to BG process");
         mp3Worker.postMessage({
           cmd: 'init',
           config: preferredConfig
@@ -1675,14 +1675,14 @@ angular.module('angularAudioRecorder.services')
 
         mp3Worker.onmessage = function (e) {
           if (e.data.cmd == 'end') {
-            console.log(tag, "Done converting to Mp3");
+            // console.log(tag, "Done converting to Mp3");
             var mp3Blob = new Blob(e.data.buf, {type: 'audio/mp3'});
-            console.log(tag, "Conversion completed in: " + ((Date.now() - startTime) / 1000) + 's');
+            // console.log(tag, "Conversion completed in: " + ((Date.now() - startTime) / 1000) + 's');
             var finalSize = mp3Blob.size;
-            console.log(tag +
-              "Initial size: = " + initialSize + ", " +
-              "Final size = " + finalSize
-              + ", Reduction: " + Number((100 * (initialSize - finalSize) / initialSize)).toPrecision(4) + "%");
+            // console.log(tag +
+              // "Initial size: = " + initialSize + ", " +
+              // "Final size = " + finalSize
+              // + ", Reduction: " + Number((100 * (initialSize - finalSize) / initialSize)).toPrecision(4) + "%");
 
             busy = false;
             if (onSuccess && typeof onSuccess === 'function') {
