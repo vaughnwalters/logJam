@@ -8,20 +8,21 @@
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
                 Can Logjam use your microphone to record?
             </div>
-            <button ng-click="recorder.startRecord()" type="button"
+            <button class="btn" ng-click="recorder.startRecord()" type="button"
+
                     ng-disabled="recorder.status.isDenied === true || recorder.status.isRecording">
                 Start Record
             </button>
-            <button ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
+            <button class="btn" ng-click="recorder.stopRecord()" type="button" ng-disabled="recorder.status.isRecording === false">
                 Stop Record
             </button>
 
-            <button ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
+            <button class="btn" ng-click="recorder.status.isPlaying ? recorder.playbackPause() : recorder.playbackResume()"
                     type="button" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                 {{recorder.status.isStopped || recorder.status.isPaused ? 'Play' : 'Pause'}}
             </button>
 
-            <button ng-click="recorder.save(title)" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
+            <button class="btn" ng-click="recorder.save(title)" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                 Download
             </button>
 
@@ -36,7 +37,7 @@
                 <br/>
 
                 <div ng-show="!recorder.status.isRecording && recorder.audioModel">
-                    <ng-audio-recorder-wave-view wave-color="green" bar-color="red"></ng-audio-recorder-wave-view>
+                    <ng-audio-recorder-wave-view wave-color="#00FF00" bar-color="red"></ng-audio-recorder-wave-view>
                 </div>
             </div>
         </div>

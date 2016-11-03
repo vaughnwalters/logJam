@@ -13,7 +13,7 @@
 <ul class="navigation">
   <li><a ng-href="/#/myJams" class="btn">My Jams</a></li>
   <li><a ng-href="/#/newJam" class="btn">New Jam</a></li>
-  <li><a ng-href="/#/audio" class="btn">Record</a></li>
+  <li><a class='modal-trigger btn' href='#recordModal' modal>Record</a></li>
   <li><a ng-click="logout()" class="btn">Logout</a></li>
 </ul>
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -27,12 +27,12 @@
   <form ng-submit="saveNewJam()">
     
     <div>
-      <input id="title" name="title" type="text" ng-model="title" placeholder="enter title">
+      <input id="title" name="title" type="text" autocomplete="off" ng-model="title" placeholder="enter title">
       <label for="title"></label>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="enter lyrics"></textarea>
+        <textarea  id=" textarea1" class="v-textarea" name="lyric" type="textarea" ng-model="lyric" placeholder="enter lyrics"></textarea>
       </div>  
     </div>
     <div class="center-align">
@@ -46,7 +46,7 @@
       <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
   </div>
   <!-- Modal Structure -->
-  <div id="recordModal" class="modal">
+  <div id="recordModal" class="modal v-modal-width">
     <div ng-include="'/partials/audio.html'"></div>
   </div>
 
