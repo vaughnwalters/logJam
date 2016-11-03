@@ -3,13 +3,13 @@
 app.controller("MyJamsCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory) {
   // inject factories into the scope as needed
 
-  // FOR NAVBAR
-  $(document).ready(function(){
-    $(".button-collapse").sideNav(
-      {
-        closeOnClick: true
-    })
-  });
+  // // FOR NAVBAR
+  // $(document).ready(function(){
+  //   $(".button-collapse").sideNav(
+  //     {
+  //       closeOnClick: true
+  //   })
+  // });
 
 
   $scope.allUserJams = [];

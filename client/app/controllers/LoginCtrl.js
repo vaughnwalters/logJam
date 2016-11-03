@@ -3,6 +3,13 @@
 app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFactory) {
   // inject factories into the scope as needed
 
+  // // FOR NAVBAR
+  // $(document).ready(function(){
+  //   $(".button-collapse").sideNav(
+  //     {
+  //       closeOnClick: true
+  //   })
+  // });
 
   let user = {};
 

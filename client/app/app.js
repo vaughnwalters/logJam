@@ -22,6 +22,10 @@ const app = angular.module('logjam', ['ngRoute', 'angularAudioRecorder', 'ui.mat
       templateUrl: "partials/newJam.html",
       controller: "NewJamCtrl"
     })
+    .when('/audio', {
+      templateUrl: "partials/audio.html",
+      controller: "AudioCtrl"
+    })
     .when('/viewJam/:id', {
       templateUrl: "partials/viewJam.html",
       controller: "ViewJamCtrl"

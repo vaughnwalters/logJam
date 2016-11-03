@@ -1,7 +1,5 @@
-<h1>My Jams</h1>
-
 <!-- NAV -->
-  <nav>
+<!--   <nav>
     <div class="nav-wrapper">
       <span class="brand-logo left">LOGJAM</span>
       <ul class="right">
@@ -12,26 +10,26 @@
       </ul>
     </div>
   </nav>
+ -->
 
 
+<ul class="navigation">
+  <li><input type="search" placeholder="search jams" ng-model="searchJams" required></li>
+  <li><a ng-href="/#/myJams">My Jams</a></li>
+  <li><a ng-href="/#/newJam">New Jam</a></li>
+  <li><a ng-href="/#/audio" class="btn">Record</a></li>
+  <li><a ng-click="logout()">Logout</a></li>
+</ul>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>
+<div class="site-wrap">
 
+<h1 class="center-align">MY JAMS</h1>
 
-<!-- SEARCHBAR -->
-<!-- <div>
-  <input id="search" type="search" placeholder="search jams" ng-model="searchJams" required>
+  <div class="center-align" ng-repeat="song in allUserJams | filter: searchJams">
+
+  <a ng-href="/#/viewJam/{{song._id}}">{{song.title}}</a>
+
 </div>
- -->
-<!-- ADD TO SASS TO MAKE WORK CORRECTLY -->   
-<!-- nav .nav-wrapper form, nav .nav-wrapper form .input-field{
-height: 100%;
-}
- -->
-<!-- enter userId into getSong function and then will retrieve all songs of that user from db -->
-
-
-<div ng-repeat="song in allUserJams | filter: searchJams">
-
-<a ng-href="/#/viewJam/{{song._id}}">{{song.title}}</a>
-
 
 
