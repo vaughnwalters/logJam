@@ -180,8 +180,13 @@ body {
 }
 
 .btn:hover {
-  color: #111;
-  background-color: #00FF00;
+  color: #111 !important;
+  background-color: #00FF00 !important;
+}
+
+.btn:focus {
+  color: #111 !important;
+  background-color: #00FF00 !important;
 }
 /*
 .btn:visited {
@@ -233,7 +238,7 @@ a:hover {
 
 .v-textarea {
   border: none;
-  height: 300px;  
+  height: 400px;  
 }
 
 .v-textarea:active {
