@@ -7,6 +7,10 @@ const app = angular.module('logjam', ['ngRoute', 'angularAudioRecorder', 'ui.mat
   app.config(($routeProvider) => {
     $routeProvider
     .when('/', {
+      templateUrl: "partials/splash.html",
+      controller: "SplashCtrl"
+    })
+    .when('/login', {
       templateUrl: "partials/login.html",
       controller: "LoginCtrl"
     })
