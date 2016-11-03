@@ -9,7 +9,7 @@
 <label for="nav-trigger"></label>
 
 <div class="site-wrap">
-  <input type="search" placeholder="click here to search your jams" autocomplete="off" ng-model="searchJams" required>
+  <input type="search" placeholder="click here to search your jams" spellcheck="false" autocomplete="off" ng-model="searchJams" required>
   <div class="center-align" ng-repeat="song in allUserJams | filter: searchJams">
     <a ng-href="/#/viewJam/{{song._id}}">{{song.title}}</a>
   </div>
