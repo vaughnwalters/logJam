@@ -35,22 +35,39 @@
         <textarea  id=" textarea1" class="v-textarea" name="lyric" type="textarea" ng-model="lyric" placeholder="enter lyrics"></textarea>
       </div>  
     </div>
-    <div class="center-align">
-      <button type="submit" class="btn">Save</button>
+
+
+<!-- <div class="container">
+  <form class="col s12" ng-submit="login()">
+  <div class="row">
+      <div>
+        <input placeholder="email" id="email" type="email" class="validate" ng-model="email">
+      </div>
+      <div>
+        <input placeholder="password" id="password" type="password" class="validate" ng-model="password">
+
+      </div>
+      <a ng-click='login()' class="btn">Login</a>
+      <a ng-href='/#/register' class="btn">Register</a>
+    </div>
+  </form>
+</div> -->
+
+    <div class="container">
+      <div class="center-align">
+        <div class="row">
+          <!-- Modal Trigger -->
+          <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
+          <button type="submit" class="btn">Save</button>
+        </div>
+      </div>
     </div>
   </form>
 
-
-  <!-- Modal Trigger -->
-  <div class="col center-align">
-      <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
-  </div>
   <!-- Modal Structure -->
   <div id="recordModal" class="modal v-modal-width">
     <div ng-include="'/partials/audio.html'"></div>
   </div>
-
-
 
 
 </div>

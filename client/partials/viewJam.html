@@ -1,16 +1,4 @@
-<!-- NAV -->
-<!-- <nav>
-  <div class="nav-wrapper">
-    <span class="brand-logo left">LOGJAM</span>
-    <ul class="right">
-      <li><a ng-href="/#/myJams">My Jams</a></li>
-      <li><a ng-href="/#/newJam">New Jam</a></li>
-      <li><a ng-click="logout()">Logout</a></li>
-    </ul>
-  </div>
-</nav>
 
- -->
 <ul class="navigation">
   <li><a ng-href="/#/myJams" class="btn">My Jams</a></li>
   <li><a ng-href="/#/newJam" class="btn">New Jam</a></li>
@@ -22,45 +10,32 @@
 <div class="site-wrap">
 
 
+  <form ng-submit="saveEditJam()">
+    <div>
+      <input id="title" name="title" autocomplete="off" type="text" ng-model="title" placeholder="title">
+      <label for="title"></label>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="textarea1" class="v-textarea" name="lyric" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
+      </div>  
+    </div>
 
+  </form>
 
-
-<!-- TEST -->
-<!-- <h1 class="center-align">{{title}}</h1>
- -->
-<form ng-submit="saveEditJam()">
-  <div>
-    <input id="title" name="title" autocomplete="off" type="text" ng-model="title" placeholder="title">
-    <label for="title"></label>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <textarea id="textarea1" class="v-textarea" name="lyric" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
+  <div class="container">
+    <div class="center-align">
+      <div class="row">
+      <!-- ng-click will pass in songObj which has access to song ID-->
+        <a ng-click='deleteJam(jam)' class="btn">Delete</a>
+      <!-- Modal Trigger -->
+        <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
+        <button type="submit" class="btn">Save</button>
     </div>  
-  </div>
-  <div class="center-align">
-    <button type="submit" class="btn">Save</button>
   </div>  
-
-</form>
-
-
-<!-- 
-<p>{{jam.title}}</p>
-<pre><span>{{jam.lyric}}</span></pre>
- --><!-- <p>{{jam.audio}}</p> -->
-
-<!-- ng-click will pass in songObj which has access to song ID-->
-<div class="center-align">
-  <a ng-click='deleteJam(jam)' class="btn">Delete</a>
 </div>
-<!-- Modal Trigger -->
-<div class="col center-align">
-    <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
-</div>
+
 <!-- Modal Structure -->
 <div id="recordModal" class="modal v-modal-width">
   <div ng-include="'/partials/audio.html'"></div>
-</div>
-
 </div>
