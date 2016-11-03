@@ -26,16 +26,16 @@
 
 
 <!-- TEST -->
-<h1 class="center-align">{{title}}</h1>
-
+<!-- <h1 class="center-align">{{title}}</h1>
+ -->
 <form ng-submit="saveEditJam()">
   <div>
-    <input id="title" name="title" type="text" ng-model="title" placeholder="title">
+    <input id="title" name="title" autocomplete="off" type="text" ng-model="title" placeholder="title">
     <label for="title"></label>
   </div>
   <div class="row">
     <div class="input-field col s12">
-      <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
+      <textarea id="textarea1" class="v-textarea" name="lyric" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
     </div>  
   </div>
   <div class="center-align">
@@ -59,7 +59,7 @@
     <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
 </div>
 <!-- Modal Structure -->
-<div id="recordModal" class="modal">
+<div id="recordModal" class="modal v-modal-width">
   <div ng-include="'/partials/audio.html'"></div>
 </div>
 

@@ -5,7 +5,7 @@ body {
 }
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-    border-bottom: none;
+    border-bottom: none !important;
 }
 
 nav .brand-logo {
@@ -30,11 +30,6 @@ nav .nav-wrapper form .input-field {
   background: #000;
   display: none;
 }
-
-
-
-
-
 
 
 
@@ -165,7 +160,9 @@ input[type="checkbox"] + label:before, [type="checkbox"]:not(.filled-in) + label
 
 
 
-
+.v-modal-width {
+  width: 600px;
+}
 
 
 body {
@@ -176,14 +173,21 @@ body {
 
 .btn {
   background-color: #111;
-  padding: 0;
+  padding: 0 7px 0 7px;
   margin: 0;
   border-radius: 0;
+  box-shadow: none !important;
 }
 
 .btn:hover {
   color: #111;
   background-color: #00FF00;
+}
+
+.btn:visited {
+  color: #111 !important;
+  background-color: #00FF00 !important;
+
 }
 
 input {
@@ -224,3 +228,32 @@ a:hover {
   text-align: center;
   margin-top: 15px;
 }
+
+
+
+.v-textarea {
+  border: none;
+  height: 300px;  
+}
+
+.v-textarea:active {
+  border: 1px solid black;
+}
+
+
+
+input {
+  box-shadow: none !important;
+}
+
+textarea {
+    outline: none !important;
+    border: none !important;
+/*    box-shadow: 0 0 5px #00FF00;
+*/}
+
+.analyzer {
+  text-align: center;
+  margin: auto;
+}
+
