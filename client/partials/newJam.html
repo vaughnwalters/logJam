@@ -1,6 +1,4 @@
-<h1>New Jam</h1>
-
-<nav>
+<!-- <nav>
   <div class="nav-wrapper">
     <span class="brand-logo left">LOGJAM</span>
     <ul class="right">
@@ -10,31 +8,51 @@
     </ul>
   </div>
 </nav>
+ -->
+
+<ul class="navigation">
+  <li><a ng-href="/#/myJams" class="btn">My Jams</a></li>
+  <li><a ng-href="/#/newJam" class="btn">New Jam</a></li>
+  <li><a ng-href="/#/audio" class="btn">Record</a></li>
+  <li><a ng-click="logout()" class="btn">Logout</a></li>
+</ul>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>
+
+<div class="site-wrap">
 
 
-<form ng-submit="saveNewJam()">
-  
-  <div>
-    <input id="title" name="title" type="text" ng-model="title" placeholder="title">
-    <label for="title"></label>
+
+
+  <form ng-submit="saveNewJam()">
+    
+    <div>
+      <input id="title" name="title" type="text" ng-model="title" placeholder="enter title">
+      <label for="title"></label>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="enter lyrics"></textarea>
+      </div>  
+    </div>
+    <div class="center-align">
+      <button type="submit" class="btn">Save</button>
+    </div>
+  </form>
+
+
+  <!-- Modal Trigger -->
+  <div class="col center-align">
+      <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
   </div>
-  <div class="row">
-    <div class="input-field col s12">
-      <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="lyrics">Lyric</textarea>
-    </div>  
+  <!-- Modal Structure -->
+  <div id="recordModal" class="modal">
+    <div ng-include="'/partials/audio.html'"></div>
   </div>
-  <button type="submit" class="btn">Save</button>
-</form>
 
 
-<!-- Modal Trigger -->
-<div class="col">
-    <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
+
+
 </div>
-<!-- Modal Structure -->
-<div id="recordModal" class="modal">
-  <div ng-include="'/partials/audio.html'"></div>
-</div>
-
 
 

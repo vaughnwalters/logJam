@@ -1,5 +1,226 @@
-/* line 1, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */body{color:red;font-family:monospace}/* line 6, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */input:not([type]),input[type=text],input[type=password],input[type=email],input[type=url],input[type=time],input[type=date],input[type=datetime],input[type=datetime-local],input[type=tel],input[type=number],input[type=search],textarea.materialize-textarea{border-bottom:none}/* line 11, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */nav .brand-logo{margin-left:20px}/* line 14, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */nav form{margin-left:180px;width:300px}/* line 18, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */nav .nav-wrapper form,nav .nav-wrapper form .input-field{height:100%}/* line 23, /Users/vaughnwalters/workspace/logJam/client/sass/main.scss */#lean_overlay{position:fixed;z-index:100;top:0px;left:0px;height:100%;width:100%;background:#000;display:none}
+body {
+  color: black;
+  font-family: monospace;
+  top: 20px;
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyJdLCJtYXBwaW5ncyI6InlFQUFBLEFBQUEsSUFBSSxBQUFDLENBQ0gsS0FBSyxDQUFFLEdBQUksQ0FDWCxXQUFXLENBQUUsU0FBVSxDQUN4Qix5RUFFRCxBQUFnQixLQUFYLEFBQUEsSUFBSyxFQUFBLEFBQUEsQUFBSyxJQUFKLEFBQUEsR0FBUSxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFtQixLQUFkLENBQUEsQUFBQSxJQUFDLENBQUQsUUFBQyxBQUFBLEVBQWdCLEFBQWdCLEtBQVgsQ0FBQSxBQUFBLElBQUMsQ0FBRCxLQUFDLEFBQUEsRUFBYSxBQUFjLEtBQVQsQ0FBQSxBQUFBLElBQUMsQ0FBRCxHQUFDLEFBQUEsRUFBVyxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFtQixLQUFkLENBQUEsQUFBQSxJQUFDLENBQUQsUUFBQyxBQUFBLEVBQWdCLEFBQXlCLEtBQXBCLENBQUEsQUFBQSxJQUFDLENBQUQsY0FBQyxBQUFBLEVBQXNCLEFBQWMsS0FBVCxDQUFBLEFBQUEsSUFBQyxDQUFELEdBQUMsQUFBQSxFQUFXLEFBQWlCLEtBQVosQ0FBQSxBQUFBLElBQUMsQ0FBRCxNQUFDLEFBQUEsRUFBYyxBQUFpQixLQUFaLENBQUEsQUFBQSxJQUFDLENBQUQsTUFBQyxBQUFBLEVBQWMsQUFBUSxRQUFBLEFBQUEscUJBQXFCLEFBQUMsQ0FDeFEsYUFBYSxDQUFFLElBQUssQ0FDdkIsMEVBR0QsQUFBSSxHQUFELENBQUMsV0FBVyxBQUFDLENBQ2QsV0FBVyxDQUFFLElBQUssQ0FDbkIsMEVBQ0QsQUFBSSxHQUFELENBQUMsSUFBSSxBQUFDLENBQ1AsV0FBVyxDQUFFLEtBQU0sQ0FDbkIsS0FBSyxDQUFFLEtBQU0sQ0FDZCwwRUFDRCxBQUFpQixHQUFkLENBQUMsWUFBWSxDQUFDLElBQUksQ0FDckIsQUFBc0IsR0FBbkIsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFlBQVksQUFBQyxDQUNqQyxNQUFNLENBQUUsSUFBSyxDQUNkLDBFQUVELEFBQUEsYUFBYSxBQUFDLENBQ1osUUFBUSxDQUFFLEtBQU0sQ0FDaEIsT0FBTyxDQUFDLEdBQUksQ0FDWixHQUFHLENBQUUsR0FBSSxDQUNULElBQUksQ0FBRSxHQUFJLENBQ1YsTUFBTSxDQUFDLElBQUssQ0FDWixLQUFLLENBQUMsSUFBSyxDQUNYLFVBQVUsQ0FBRSxJQUFLLENBQ2pCLE9BQU8sQ0FBRSxJQUFLLENBQ2YiLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIuIn0= */
+input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
+    border-bottom: none;
+}
 
-/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibWFpbi5jc3MiLCJzb3VyY2VzIjpbIm1haW4uc2NzcyJdLCJtYXBwaW5ncyI6InlFQUFBLEFBQUEsSUFBSSxBQUFDLENBQ0gsS0FBSyxDQUFFLEdBQUksQ0FDWCxXQUFXLENBQUUsU0FBVSxDQUN4Qix5RUFFRCxBQUFnQixLQUFYLEFBQUEsSUFBSyxFQUFBLEFBQUEsQUFBSyxJQUFKLEFBQUEsR0FBUSxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFtQixLQUFkLENBQUEsQUFBQSxJQUFDLENBQUQsUUFBQyxBQUFBLEVBQWdCLEFBQWdCLEtBQVgsQ0FBQSxBQUFBLElBQUMsQ0FBRCxLQUFDLEFBQUEsRUFBYSxBQUFjLEtBQVQsQ0FBQSxBQUFBLElBQUMsQ0FBRCxHQUFDLEFBQUEsRUFBVyxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFlLEtBQVYsQ0FBQSxBQUFBLElBQUMsQ0FBRCxJQUFDLEFBQUEsRUFBWSxBQUFtQixLQUFkLENBQUEsQUFBQSxJQUFDLENBQUQsUUFBQyxBQUFBLEVBQWdCLEFBQXlCLEtBQXBCLENBQUEsQUFBQSxJQUFDLENBQUQsY0FBQyxBQUFBLEVBQXNCLEFBQWMsS0FBVCxDQUFBLEFBQUEsSUFBQyxDQUFELEdBQUMsQUFBQSxFQUFXLEFBQWlCLEtBQVosQ0FBQSxBQUFBLElBQUMsQ0FBRCxNQUFDLEFBQUEsRUFBYyxBQUFpQixLQUFaLENBQUEsQUFBQSxJQUFDLENBQUQsTUFBQyxBQUFBLEVBQWMsQUFBUSxRQUFBLEFBQUEscUJBQXFCLEFBQUMsQ0FDeFEsYUFBYSxDQUFFLElBQUssQ0FDdkIsMEVBR0QsQUFBSSxHQUFELENBQUMsV0FBVyxBQUFDLENBQ2QsV0FBVyxDQUFFLElBQUssQ0FDbkIsMEVBQ0QsQUFBSSxHQUFELENBQUMsSUFBSSxBQUFDLENBQ1AsV0FBVyxDQUFFLEtBQU0sQ0FDbkIsS0FBSyxDQUFFLEtBQU0sQ0FDZCwwRUFDRCxBQUFpQixHQUFkLENBQUMsWUFBWSxDQUFDLElBQUksQ0FDckIsQUFBc0IsR0FBbkIsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFlBQVksQUFBQyxDQUNqQyxNQUFNLENBQUUsSUFBSyxDQUNkLDBFQUVELEFBQUEsYUFBYSxBQUFDLENBQ1osUUFBUSxDQUFFLEtBQU0sQ0FDaEIsT0FBTyxDQUFDLEdBQUksQ0FDWixHQUFHLENBQUUsR0FBSSxDQUNULElBQUksQ0FBRSxHQUFJLENBQ1YsTUFBTSxDQUFDLElBQUssQ0FDWixLQUFLLENBQUMsSUFBSyxDQUNYLFVBQVUsQ0FBRSxJQUFLLENBQ2pCLE9BQU8sQ0FBRSxJQUFLLENBQ2YiLCJuYW1lcyI6W10sInNvdXJjZXNDb250ZW50IjpbImJvZHkge1xuICBjb2xvcjogcmVkO1xuICBmb250LWZhbWlseTogbW9ub3NwYWNlO1xufVxuXG5pbnB1dDpub3QoW3R5cGVdKSwgaW5wdXRbdHlwZT10ZXh0XSwgaW5wdXRbdHlwZT1wYXNzd29yZF0sIGlucHV0W3R5cGU9ZW1haWxdLCBpbnB1dFt0eXBlPXVybF0sIGlucHV0W3R5cGU9dGltZV0sIGlucHV0W3R5cGU9ZGF0ZV0sIGlucHV0W3R5cGU9ZGF0ZXRpbWVdLCBpbnB1dFt0eXBlPWRhdGV0aW1lLWxvY2FsXSwgaW5wdXRbdHlwZT10ZWxdLCBpbnB1dFt0eXBlPW51bWJlcl0sIGlucHV0W3R5cGU9c2VhcmNoXSwgdGV4dGFyZWEubWF0ZXJpYWxpemUtdGV4dGFyZWEge1xuICAgIGJvcmRlci1ib3R0b206IG5vbmU7XG59XG5cbi8vIG15SmFtc1xubmF2IC5icmFuZC1sb2dvIHtcbiAgbWFyZ2luLWxlZnQ6IDIwcHg7XG59XG5uYXYgZm9ybSB7XG4gIG1hcmdpbi1sZWZ0OiAxODBweDtcbiAgd2lkdGg6IDMwMHB4O1xufVxubmF2IC5uYXYtd3JhcHBlciBmb3JtLFxubmF2IC5uYXYtd3JhcHBlciBmb3JtIC5pbnB1dC1maWVsZCB7XG4gIGhlaWdodDogMTAwJTtcbn1cblxuI2xlYW5fb3ZlcmxheSB7XG4gIHBvc2l0aW9uOiBmaXhlZDtcbiAgei1pbmRleDoxMDA7XG4gIHRvcDogMHB4O1xuICBsZWZ0OiAwcHg7XG4gIGhlaWdodDoxMDAlO1xuICB3aWR0aDoxMDAlO1xuICBiYWNrZ3JvdW5kOiAjMDAwO1xuICBkaXNwbGF5OiBub25lO1xufVxuIl19 */
+nav .brand-logo {
+  margin-left: 20px;
+}
+nav form {
+  margin-left: 180px;
+  width: 300px;
+}
+nav .nav-wrapper form,
+nav .nav-wrapper form .input-field {
+  height: 100%;
+}
+
+#lean_overlay {
+  position: fixed;
+  z-index:2;
+  top: 0px;
+  left: 0px;
+  height:100%;
+  width:100%;
+  background: #000;
+  display: none;
+}
+
+
+
+
+
+
+
+
+/*NAV*/
+
+/* Navigation Menu - Background */
+.navigation {
+  /* critical sizing and position styles */
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  
+  /* non-critical appearance styles */
+  list-style: none;
+  background: #111;
+}
+
+/* Navigation Menu - List items */
+.nav-item {
+  /* non-critical appearance styles */
+  width: 200px;
+  border-top: 1px solid #111;
+  border-bottom: 1px solid #000;
+}
+
+.nav-item a {
+  /* non-critical appearance styles */
+  display: block;
+  padding: 1em;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);
+  color: white;
+  font-size: 1.2em;
+  text-decoration: none;
+  transition: color 0.2s, background 0.5s;
+}
+
+.nav-item a:hover {
+  color: #c74438;
+  background: linear-gradient(135deg, rgba(0,0,0,0) 0%,rgba(75,20,20,0.65) 100%);
+}
+
+/* Site Wrapper - Everything that isn't navigation */
+.site-wrap {
+  /* Critical position and size styles */
+  min-height: 100%;
+  min-width: 100%;
+  background-color: white; /* Needs a background or else the nav will show through */
+  position: absolute;
+  top: 0;
+  bottom: 100%;
+  left: 0;
+/*  z-index: 1;
+*/  
+  /* non-critical apperance styles */
+  padding: 4em;
+/*  background-image: linear-gradient(135deg, rgb(254,255,255) 0%,rgb(221,241,249) 35%,rgb(160,216,239) 100%);
+*/  background-size: 200%;
+}
+
+/* Nav Trigger */
+.nav-trigger {
+  /* critical styles - hide the checkbox input */
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+label[for="nav-trigger"] {
+  /* critical positioning styles */
+  position: fixed;
+  left: 15px; top: 15px;
+  z-index: 2;
+  
+  /* non-critical apperance styles */
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' x='0px' y='0px' width='30px' height='30px' viewBox='0 0 30 30' enable-background='new 0 0 30 30' xml:space='preserve'><rect width='30' height='6'/><rect y='24' width='30' height='6'/><rect y='12' width='30' height='6'/></svg>");
+  background-size: contain;
+}
+
+/* Make the Magic Happen */
+.nav-trigger + label, .site-wrap {
+  transition: left 0.2s;
+}
+
+.nav-trigger:checked + label {
+  left: 215px;
+}
+
+.nav-trigger:checked ~ .site-wrap {
+  left: 130px;
+  box-shadow: 0 0 5px 5px rgba(0,0,0,0.5);
+}
+
+body {
+  /* Without this, the body has excess horizontal scroll when the menu is open */
+  overflow-x: hidden;
+}
+
+/* Additional non-critical styles */
+
+h1, h3, p {
+  max-width: 600px;
+  margin: 0 auto 1em;
+}
+
+code {
+  padding: 2px;
+  background: #ddd;
+}
+
+/* Micro reset */
+*,*:before,*:after{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;margin:0;padding:0;}
+html, body { height: 100%; width: 100%; font-family: Helvetica, Arial, sans-serif; }
+
+
+input[type="checkbox"] + label:before, [type="checkbox"]:not(.filled-in) + label:after {
+    display: none;
+}
+/*END NAV*/
+
+
+
+
+
+
+
+
+body {
+  color: black;
+  font-family: monospace;
+  top: 20px;
+}
+
+.btn {
+  background-color: #111;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+}
+
+.btn:hover {
+  color: #111;
+  background-color: #00FF00;
+}
+
+input {
+  text-align: center;
+  font-size: 20px;
+}
+
+textarea {
+  text-align: center;
+}
+
+/*PLACEHOLDERS*/
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #111;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #111;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #111;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #111;
+}
+
+a {
+  color: #111;
+}
+
+a:hover {
+  color: #00FF00;
+}
+
+
+.recorder-buttons {
+  text-align: center;
+  margin-top: 15px;
+}

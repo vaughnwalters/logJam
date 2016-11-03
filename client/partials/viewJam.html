@@ -1,7 +1,5 @@
-<h1>View Jam</h1>
-
 <!-- NAV -->
-<nav>
+<!-- <nav>
   <div class="nav-wrapper">
     <span class="brand-logo left">LOGJAM</span>
     <ul class="right">
@@ -12,7 +10,23 @@
   </div>
 </nav>
 
+ -->
+<ul class="navigation">
+  <li><a ng-href="/#/myJams" class="btn">My Jams</a></li>
+  <li><a ng-href="/#/newJam" class="btn">New Jam</a></li>
+  <li><a ng-href="/#/audio" class="btn">Record</a></li>
+  <li><a ng-click="logout()" class="btn">Logout</a></li>
+</ul>
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger"></label>
+<div class="site-wrap">
+
+
+
+
+
 <!-- TEST -->
+<h1 class="center-align">{{title}}</h1>
 
 <form ng-submit="saveEditJam()">
   <div>
@@ -24,8 +38,9 @@
       <textarea  id=" textarea1" name="lyric" class="materialize-textarea" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
     </div>  
   </div>
-  <button type="submit" class="btn">Save</button>
-
+  <div class="center-align">
+    <button type="submit" class="btn">Save</button>
+  </div>  
 
 </form>
 
@@ -36,13 +51,16 @@
  --><!-- <p>{{jam.audio}}</p> -->
 
 <!-- ng-click will pass in songObj which has access to song ID-->
-<a ng-click='deleteJam(jam)' class="btn">Delete</a>
-
+<div class="center-align">
+  <a ng-click='deleteJam(jam)' class="btn">Delete</a>
+</div>
 <!-- Modal Trigger -->
-<div class="col">
+<div class="col center-align">
     <a class='modal-trigger btn' href='#recordModal' modal>Record</a>
 </div>
 <!-- Modal Structure -->
 <div id="recordModal" class="modal">
   <div ng-include="'/partials/audio.html'"></div>
+</div>
+
 </div>
