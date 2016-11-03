@@ -1,13 +1,16 @@
-<h1>Register</h1>
-
-<div class="container">
+<div class="container center-align">
+<h5 class="v-headspace">LOGJAM</h5>
+<!-- <h6>a minimalist, intuitive sketchpad</h6>
+<h6>for lyrics and music</h6>
+ -->
+<div class="container center-align">
   <form class="col s12" ng-submit="register()">
   <div class="row">
       <div>
-        <input placeholder="user name" id="displayName" spellcheck="false" type="text" ng-model="displayName">
+        <input placeholder="user name" id="displayName" spellcheck="false" autocomplete="off" type="text" ng-model="displayName">
       </div>
       <div>
-        <input placeholder="email" id="email" spellcheck="false" type="email" class="validate" ng-model="email">
+        <input placeholder="email" id="email" spellcheck="false" autocomplete="off" type="email" class="validate" ng-model="email">
       </div>
       <div>
         <input placeholder="password" id="password" spellcheck="false" type="password" class="validate" ng-model="password">
