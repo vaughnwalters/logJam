@@ -5,7 +5,7 @@ body {
 }
 
 input:not([type]), input[type=text], input[type=password], input[type=email], input[type=url], input[type=time], input[type=date], input[type=datetime], input[type=datetime-local], input[type=tel], input[type=number], input[type=search], textarea.materialize-textarea {
-    border-bottom: none;
+    border-bottom: none !important;
 }
 
 nav .brand-logo {
@@ -31,6 +31,9 @@ nav .nav-wrapper form .input-field {
   display: none;
 }
 
+input, textarea {
+  box-shadow: none !important;
+}
 
 
 
@@ -174,14 +177,14 @@ body {
   top: 20px;
 }
 
-.btn {
+.btn, .btn:visited {
   background-color: #111;
   padding: 0;
   margin: 0;
   border-radius: 0;
 }
 
-.btn:hover {
+.btn:hover, btn:active {
   color: #111;
   background-color: #00FF00;
 }
@@ -193,6 +196,7 @@ input {
 
 textarea {
   text-align: center;
+  height: 500px;
 }
 
 /*PLACEHOLDERS*/
