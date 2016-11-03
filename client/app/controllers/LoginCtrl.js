@@ -1,15 +1,6 @@
 "use strict";
 
 app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFactory) {
-  // inject factories into the scope as needed
-
-  // // FOR NAVBAR
-  // $(document).ready(function(){
-  //   $(".button-collapse").sideNav(
-  //     {
-  //       closeOnClick: true
-  //   })
-  // });
 
   let user = {};
 
@@ -30,19 +21,3 @@ app.controller("LoginCtrl", function ($scope, $routeParams, $location, AuthFacto
   }
 
 });
-
-
-//   $scope.saveNewJam = () => {
-//     newJam = {
-//       userId: userId,
-//       title: $scope.title,
-//       lyric: $scope.lyric
-//     }
-//     console.log("newJam", newJam);
-//     DatabaseFactory.postNewJam(newJam)
-//     .then((newJam) => { 
-//       console.log("newJam", newJam);
-//       // $location.path('/myJams')
-//     })
-//   }
-// });

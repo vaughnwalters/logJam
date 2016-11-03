@@ -1,12 +1,28 @@
 <div ng-controller='AudioCtrl'>
 
-    <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false" time-limit="timeLimit">
+    <ng-audio-recorder id="mainAudio" audio-model="recorded" show-player="false">
 
+        <input type="text" ng-model="title" placeholder="click here to name the audio file">
     
         <div ng-if="recorder.isAvailable" class="recorder-buttons">
 
             <div ng-if="recorder.status.isDenied === true" style="color: red;">
                 Can Logjam use your microphone to record?
+            </div>
+
+            <div style="max-width: 600px">
+                <div ng-show="recorder.status.isConverting">
+                    Please wait while your recording is processed.
+                </div>
+
+                <div ng-show="recorder.isHtml5 && recorder.status.isRecording">
+                    <ng-audio-recorder-analyzer></ng-audio-recorder-analyzer>
+                </div>
+                <br/>
+
+                <div ng-show="!recorder.status.isRecording && recorder.audioModel">
+                    <ng-audio-recorder-wave-view wave-color="#00FF00" bar-color="red"></ng-audio-recorder-wave-view>
+                </div>
             </div>
             <button class="btn" ng-click="recorder.startRecord()" type="button"
 
@@ -25,21 +41,6 @@
             <button class="btn" ng-click="recorder.save(title)" ng-disabled="recorder.status.isRecording || !recorder.audioModel">
                 Download
             </button>
-
-            <div style="max-width: 600px">
-                <div ng-show="recorder.status.isConverting">
-                    Please wait while your recording is processed.
-                </div>
-
-                <div ng-show="recorder.isHtml5 && recorder.status.isRecording">
-                    <ng-audio-recorder-analyzer></ng-audio-recorder-analyzer>
-                </div>
-                <br/>
-
-                <div ng-show="!recorder.status.isRecording && recorder.audioModel">
-                    <ng-audio-recorder-wave-view wave-color="#00FF00" bar-color="red"></ng-audio-recorder-wave-view>
-                </div>
-            </div>
         </div>
 
 
@@ -51,7 +52,6 @@
             use this feature.
         </div>
  
-        <input type="text" ng-model="title" placeholder="click here to name the audio file">
     </ng-audio-recorder>
 
 </div>
