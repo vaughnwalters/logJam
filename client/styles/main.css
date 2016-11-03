@@ -238,7 +238,7 @@ a:hover {
 
 .v-textarea {
   border: none;
-  height: 400px;  
+  height: 100px;  
 }
 
 .v-textarea:active {
