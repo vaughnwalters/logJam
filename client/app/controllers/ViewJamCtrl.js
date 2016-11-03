@@ -14,7 +14,7 @@ app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFac
   DatabaseFactory.getJamFromDb($scope.songId)
   .then(function(jam) {
     $scope.jam = jam.data.songs;
-    $rootScope.title = jam.data.songs.title;
+    $scope.title = jam.data.songs.title;
     $scope.lyric = jam.data.songs.lyric;
   });
 
