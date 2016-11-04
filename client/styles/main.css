@@ -238,7 +238,7 @@ a:hover {
 
 .v-textarea {
   border: none;
-  height: 100px;  
+  height: 400px;  
 }
 
 .v-textarea:active {
@@ -272,4 +272,3 @@ textarea {
 .v-splash-space {
   margin: 40px 0 60px 0;
 }
-
