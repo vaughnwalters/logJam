@@ -31,8 +31,6 @@ nav .nav-wrapper form .input-field {
   display: none;
 }
 
-
-
 /*NAV*/
 
 /* Navigation Menu - Background */
@@ -164,7 +162,6 @@ input[type="checkbox"] + label:before, [type="checkbox"]:not(.filled-in) + label
   width: 600px;
 }
 
-
 body {
   color: black;
   font-family: monospace;
@@ -188,13 +185,7 @@ body {
   color: #111 !important;
   background-color: #00FF00 !important;
 }
-/*
-.btn:visited {
-  color: #111 !important;
-  background-color: #00FF00 !important;
 
-}
-*/
 input {
   text-align: center;
   font-size: 20px;
@@ -228,13 +219,10 @@ a:hover {
   color: #00FF00;
 }
 
-
 .recorder-buttons {
   text-align: center;
   margin-bottom: 15px;
 }
-
-
 
 .v-textarea {
   border: none;
@@ -245,17 +233,14 @@ a:hover {
   border: 1px solid black;
 }
 
-
-
 input {
   box-shadow: none !important;
 }
 
 textarea {
-    outline: none !important;
-    border: none !important;
-/*    box-shadow: 0 0 5px #00FF00;
-*/}
+  outline: none !important;
+  border: none !important;
+}
 
 .analyzer {
   text-align: center;
@@ -263,11 +248,9 @@ textarea {
 }
 
 
-
 .v-headspace {
   margin-top: 56px;
 }
-
 
 .v-splash-space {
   margin: 40px 0 60px 0;

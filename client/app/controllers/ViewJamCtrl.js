@@ -1,7 +1,6 @@
 "use strict";
 
 app.controller("ViewJamCtrl", function ($scope, $routeParams, $location, AuthFactory, DatabaseFactory, $rootScope) {
-  // inject factories into the scope as needed
 
   $(document).ready(function () {
     $('a[rel*=recordModal]').leanModal({ top : 200, closeButton: ".modal_close" });       

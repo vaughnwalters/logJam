@@ -12,7 +12,7 @@ app.factory("AuthFactory", function($http) {
 
   let logoutUser = function() {
     return $http.get(`/logout`)
-  }
+  };
 
   return {loginUser, createUser, logoutUser};
   
