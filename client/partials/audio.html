@@ -6,7 +6,7 @@
     
         <div ng-if="recorder.isAvailable" class="recorder-buttons">
 
-            <div ng-if="recorder.status.isDenied === true" style="color: red;">
+            <div ng-if="recorder.status.isDenied === true">
                 Can Logjam use your microphone to record?
             </div>
 
@@ -42,7 +42,6 @@
                 Download
             </button>
         </div>
-
 
         <div ng-if="!recorder.isAvailable">
             Your browser does not support this feature natively, please use latest version of <a

@@ -4,10 +4,11 @@
   <li><a class='modal-trigger btn' href='#recordModal' modal>Record</a></li>
   <li><a ng-click="logout()" class="btn">Logout</a></li>
 </ul>
+
 <input type="checkbox" id="nav-trigger" class="nav-trigger" />
 <label for="nav-trigger"></label>
-<div class="site-wrap">
 
+<div class="site-wrap">
 
   <form ng-submit="saveEditJam()">
     <div>
@@ -19,7 +20,6 @@
         <textarea id="textarea1" class="v-textarea" name="lyric" spellcheck="false" type="textarea" ng-model="lyric" placeholder="lyrics"></textarea>
       </div>  
     </div>
-
 
     <div class="container">
       <div class="center-align">
@@ -34,6 +34,7 @@
     </div>
   </form>
 </div>
+
 <!-- Modal Structure -->
 <div id="recordModal" class="modal v-modal-width">
   <div ng-include="'/partials/audio.html'"></div>

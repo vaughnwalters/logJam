@@ -6,6 +6,6 @@ app.controller("NavCtrl", function ($scope, $location, AuthFactory) {
     AuthFactory.logoutUser()
     .then(() => $location.path('/'))
   }
-
+  
 });
 
