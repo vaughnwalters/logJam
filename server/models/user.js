@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-// const HTML5_EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*/=?^_`{|}~-]@[a-zA-Z0-9-](?:\.[a-zA-Z0-9-])*$/
+const HTML5_EMAIL_REGEX = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
 module.exports = mongoose.model('User', {
   displayName: {
@@ -13,7 +13,7 @@ module.exports = mongoose.model('User', {
     type: String,
     lowercase: true,
     required: true,
-    // match: [HTML5_EMAIL_REGEX, 'Please enter a valid email address'],
+    match: [HTML5_EMAIL_REGEX, 'Please enter a valid email address'],
     index: { unique: true},
   },
   password: {

@@ -1,6 +1,5 @@
 "use strict";
 
-
 app.controller("RegisterCtrl", function ($scope, $routeParams, $location, AuthFactory) {
 
   $scope.register = () => {
