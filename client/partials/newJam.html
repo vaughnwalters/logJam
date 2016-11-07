@@ -1,28 +1,15 @@
-<!-- <nav>
-  <div class="nav-wrapper">
-    <span class="brand-logo left">LOGJAM</span>
-    <ul class="right">
-      <li><a ng-href="/#/myJams">My Jams</a></li>
-      <li><a ng-href="/#/newJam">New Jam</a></li>
-      <li><a ng-click="logout()">Logout</a></li>
-    </ul>
-  </div>
-</nav>
- -->
-
 <ul class="navigation">
   <li><a ng-href="/#/myJams" class="btn">My Jams</a></li>
   <li><a ng-href="/#/newJam" class="btn">New Jam</a></li>
   <li><a class='modal-trigger btn' href='#recordModal' modal>Record</a></li>
   <li><a ng-click="logout()" class="btn">Logout</a></li>
 </ul>
-<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger"/>
 <label for="nav-trigger"></label>
 
 <div class="site-wrap">
-
   <form ng-submit="saveNewJam()">
-    
     <div>
       <input id="title" name="title" spellcheck="false" type="text" autocomplete="off" ng-model="title" placeholder="enter title">
       <label for="title"></label>
@@ -32,24 +19,6 @@
         <textarea  id=" textarea1" class="v-textarea" name="lyric" spellcheck="false" type="textarea" ng-model="lyric" placeholder="enter lyrics"></textarea>
       </div>  
     </div>
-
-
-<!-- <div class="container">
-  <form class="col s12" ng-submit="login()">
-  <div class="row">
-      <div>
-        <input placeholder="email" id="email" type="email" class="validate" ng-model="email">
-      </div>
-      <div>
-        <input placeholder="password" id="password" type="password" class="validate" ng-model="password">
-
-      </div>
-      <a ng-click='login()' class="btn">Login</a>
-      <a ng-href='/#/register' class="btn">Register</a>
-    </div>
-  </form>
-</div> -->
-
     <div class="container">
       <div class="center-align">
         <div class="row">
@@ -66,7 +35,3 @@
 <div id="recordModal" class="modal v-modal-width">
   <div ng-include="'/partials/audio.html'"></div>
 </div>
-
-
-
-
